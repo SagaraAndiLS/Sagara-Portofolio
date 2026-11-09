@@ -10,9 +10,9 @@ import { PERSONAL, EDUCATION, CERTIFICATIONS, PROJECTS } from '../data/portfolio
      'arch'   → top rounded like a doorway (default)
      'circle' → round photo
      'cutout' → no frame; use a PNG with transparent background */
-const PHOTO_FILE = 'AshafaMultazam.jpg'
+const PHOTO_FILE = 'Sagara.png'
 const PHOTO_SHAPE = 'arch'
-const CV_FILE = 'CV-Ashafa-Multazam.pdf'
+const CV_FILE = 'CV-Sagara-Andi-Ladzuardi-Suwarsa.pdf'
 const HEADLINE = 'Mengubah data mentah menjadi keputusan yang bisa ditindaklanjuti.'
 /* ─────────────────────────────────────────────────────────── */
 
