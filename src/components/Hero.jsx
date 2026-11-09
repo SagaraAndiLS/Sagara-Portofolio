@@ -5,7 +5,7 @@ import CountUp from 'react-countup'
 import { useInView } from 'react-intersection-observer'
 import { PERSONAL, STATS, GMAIL_LINK } from '../data/portfolio'
 
-const ROLES = ['Data Analyst', 'Business Intelligence', 'Business Analyst', 'Problem Solver']
+const ROLES = ['Data Analyst', 'Business Analyst', 'Problem Solver']
 
 function TypeWriter({ words }) {
   const [idx, setIdx] = useState(0)
@@ -138,9 +138,9 @@ export default function Hero() {
                 <span className="text-slate-500">// </span>Hello, I am
               </p>
               <h1 className="font-display font-800 text-5xl lg:text-6xl xl:text-7xl leading-tight text-slate-50">
-                Ashafa Multazam
+                Sagara Andi Ladzuardi Suwarsa
                 <br />
-                <span className="text-teal-400">as Azzam</span>
+                <span className="text-teal-400">as Gara</span>
               </h1>
             </motion.div>
 
