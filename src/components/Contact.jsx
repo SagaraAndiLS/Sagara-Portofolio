@@ -43,8 +43,8 @@ export default function Contact() {
     { icon: Mail, label: 'Email', value: PERSONAL.email, href: GMAIL_LINK, color: 'teal' },
     { icon: Phone, label: 'WhatsApp', value: PERSONAL.phone, href: `https://wa.me/6289604182218`, color: 'teal' },
     { icon: MapPin, label: 'Lokasi', value: PERSONAL.location, href: null, color: 'amber' },
-    { icon: Linkedin, label: 'LinkedIn', value: 'Ashafamultazam', href: PERSONAL.linkedin, color: 'teal' },
-    { icon: Github, label: 'GitHub', value: 'Ashafamultazam', href: PERSONAL.github, color: 'amber' },
+    { icon: Linkedin, label: 'LinkedIn', value: 'SagaraAndiLS', href: PERSONAL.linkedin, color: 'teal' },
+    { icon: Github, label: 'GitHub', value: 'SagaraAndiLS', href: PERSONAL.github, color: 'amber' },
   ]
 
   return (
