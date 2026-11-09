@@ -4,14 +4,13 @@ export const PERSONAL = {
   name: 'Sagara Andi Ladzuardi Suwarsa',
   title: 'Data Analyst',
   tagline: 'Mengubah data menjadi keputusan bisnis yang bermakna',
-  location: 'Bandung, Jawa Barat, Indonesia',
+  location: 'Sumedang, Jawa Barat, Indonesia',
   email: 'asagara830@gmail.com',
   phone: '+6289604182218',
   linkedin: 'https://www.linkedin.com/in/sagaraandiladzuardi',
   github: 'https://github.com/SagaraAndiLS',
   bio: `Lulusan program studi sarjana S1 sains data di Universitas Koperasi Indonesia (IKOPIN) 
-        dengan IPK 3.61. Memiliki passion di bidang data analysis dan pengalaman mengikuti Data Analytics and Gen AI 
-        dari platform RevoU selama 5 bulan. Mampu problem solving yang baik dan bekerja secara 
+        dengan IPK 3.61. Mampu problem solving yang baik dan bekerja secara 
         mandiri maupun dalam tim, berminat berkontribusi dalam proyek-proyek yang menantang.`,
 }
 export const GMAIL_LINK = `https://mail.google.com/mail/?view=cm&fs=1&to=${PERSONAL.email}&su=${encodeURIComponent('Halo Asagara, saya tertarik berdiskusi')}`
@@ -76,10 +75,10 @@ export const EDUCATION = [
     institution: 'Universitas Koperasi Indonesia (IKOPIN)',
     location: 'Jatinangor',
     period: 'September 2022 – 2026',
-    gpa: '3.36',
+    gpa: '3.61',
     status: 'Lulus',
     icon: '🎓',
-    description: `Lulusan S1 Sains Data dengan IPK 3,36 yang dibekali fondasi statistika, pemrograman, dan machine learning. 
+    description: `Lulusan S1 Sains Data dengan IPK 3,61 yang dibekali fondasi statistika, pemrograman, dan machine learning. 
     Terbiasa mengolah data mentah menjadi insight melalui pembersihan data, analisis, dan visualisasi. 
     Menyelesaikan tugas akhir tentang Segmentasi produk laptop pada E-Commerce Tokopedia menggunakan K-Means Clustering 
     serta proyek analisis data yang dapat dilihat di bagian Projects.`,
