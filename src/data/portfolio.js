@@ -1,4 +1,4 @@
-// ─── Data Portfolio Ashafa Multazam ──────────────────────────
+// ─── Data Portfolio Sagara Andi Ladzuardi Suwarsa ──────────────────────────
 
 export const PERSONAL = {
   name: 'Sagara Andi Ladzuardi Suwarsa',
