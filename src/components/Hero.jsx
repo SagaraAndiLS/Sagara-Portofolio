@@ -5,7 +5,7 @@ import CountUp from 'react-countup'
 import { useInView } from 'react-intersection-observer'
 import { PERSONAL, STATS, GMAIL_LINK } from '../data/portfolio'
 
-const ROLES = ['Data Analyst', 'Business Analyst', 'Problem Solver']
+const ROLES = ['Data Analyst', 'Data Science Specialist', 'Problem Solver']
 
 function TypeWriter({ words }) {
   const [idx, setIdx] = useState(0)
@@ -50,10 +50,11 @@ export default function Hero() {
     const canvas = canvasRef.current
     if (!canvas) return
     const ctx = canvas.getContext('2d')
-    let w = canvas.width = window.innerWidth
-    let h = canvas.height = window.innerHeight
+    let w = (canvas.width = window.innerWidth)
+    let h = (canvas.height = window.innerHeight)
     const particles = Array.from({ length: 60 }, () => ({
-      x: Math.random() * w, y: Math.random() * h,
+      x: Math.random() * w,
+      y: Math.random() * h,
       r: Math.random() * 1.2 + 0.3,
       vx: (Math.random() - 0.5) * 0.3,
       vy: (Math.random() - 0.5) * 0.3,
@@ -63,7 +64,8 @@ export default function Hero() {
     const draw = () => {
       ctx.clearRect(0, 0, w, h)
       particles.forEach(p => {
-        p.x += p.vx; p.y += p.vy
+        p.x += p.vx
+        p.y += p.vy
         if (p.x < 0 || p.x > w) p.vx *= -1
         if (p.y < 0 || p.y > h) p.vy *= -1
         ctx.beginPath()
@@ -76,10 +78,10 @@ export default function Hero() {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x
           const dy = particles[i].y - particles[j].y
-          const dist = Math.sqrt(dx*dx + dy*dy)
+          const dist = Math.sqrt(dx * dx + dy * dy)
           if (dist < 120) {
             ctx.beginPath()
-            ctx.strokeStyle = `rgba(20,184,166,${0.05 * (1 - dist/120)})`
+            ctx.strokeStyle = `rgba(20,184,166,${0.05 * (1 - dist / 120)})`
             ctx.lineWidth = 0.5
             ctx.moveTo(particles[i].x, particles[i].y)
             ctx.lineTo(particles[j].x, particles[j].y)
@@ -91,14 +93,28 @@ export default function Hero() {
     }
     draw()
     const resize = () => {
-      w = canvas.width = window.innerWidth
-      h = canvas.height = window.innerHeight
+      w = (canvas.width = window.innerWidth)
+      h = (canvas.height = window.innerHeight)
     }
     window.addEventListener('resize', resize)
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize) }
+    return () => {
+      cancelAnimationFrame(raf)
+      window.removeEventListener('resize', resize)
+    }
   }, [])
 
   const scrollDown = () => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
+
+  // Fallback data agar tidak error jika data/portfolio.js belum lengkap
+  const personalName = PERSONAL?.name || 'Sagara Andi Ladzuardi Suwarsa'
+  const personalLocation = PERSONAL?.location || 'Kab. Sumedang, Jawa Barat'
+  const personalTagline = PERSONAL?.tagline || 'Fresh graduate S1 Sains Data yang bersemangat memanfaatkan teknologi dan data'
+  const statsData = STATS || [
+    { label: 'IPK S1', value: 3.61, decimals: 2 },
+    { label: 'Publikasi Jurnal', value: 2 },
+    { label: 'Pengalaman Kerja', value: 3 },
+    { label: 'Sertifikasi & Pelatihan', value: 2 },
+  ]
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
@@ -114,7 +130,6 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-24 pb-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-
           {/* LEFT: Text content */}
           <div className="space-y-6">
             {/* Badge */}
@@ -137,10 +152,8 @@ export default function Hero() {
               <p className="font-mono text-teal-500 text-sm mb-2 tracking-widest">
                 <span className="text-slate-500">// </span>Hello, I am
               </p>
-              <h1 className="font-display font-800 text-5xl lg:text-6xl xl:text-7xl leading-tight text-slate-50">
-                Sagara Andi Ladzuardi Suwarsa
-                <br />
-                <span className="text-teal-400">as Gara</span>
+              <h1 className="font-display font-800 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight text-slate-50">
+                {personalName}
               </h1>
             </motion.div>
 
@@ -161,7 +174,7 @@ export default function Hero() {
               transition={{ delay: 0.6 }}
               className="text-slate-400 text-base lg:text-lg leading-relaxed max-w-lg"
             >
-              {PERSONAL.tagline} — dari raw data hingga actionable insights.
+              {personalTagline} — dari raw data hingga actionable insights.
             </motion.p>
 
             {/* Location */}
@@ -172,7 +185,7 @@ export default function Hero() {
               className="flex items-center gap-2 text-slate-500 text-sm"
             >
               <MapPin className="w-3.5 h-3.5 text-teal-500" />
-              <span className="font-mono">{PERSONAL.location}</span>
+              <span className="font-mono">{personalLocation}</span>
             </motion.div>
 
             {/* CTA Buttons */}
@@ -182,11 +195,25 @@ export default function Hero() {
               transition={{ delay: 0.7 }}
               className="flex flex-wrap gap-3 pt-2"
             >
-              <a href="#projects" onClick={e => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }) }} className="btn-primary">
+              <a
+                href="#projects"
+                onClick={e => {
+                  e.preventDefault()
+                  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+                className="btn-primary"
+              >
                 <span>Lihat Proyek</span>
                 <ChevronRight className="w-4 h-4" />
               </a>
-              <a href="#contact" onClick={e => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }} className="btn-outline">
+              <a
+                href="#contact"
+                onClick={e => {
+                  e.preventDefault()
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+                className="btn-outline"
+              >
                 <Mail className="w-4 h-4" />
                 <span>Kontak Saya</span>
               </a>
@@ -200,9 +227,9 @@ export default function Hero() {
               className="flex items-center gap-4 pt-1"
             >
               {[
-                { icon: Github, href: PERSONAL.github, label: 'GitHub' },
-                { icon: Linkedin, href: PERSONAL.linkedin, label: 'LinkedIn' },
-                { icon: Mail, href: GMAIL_LINK, label: 'Email' },
+                { icon: Github, href: PERSONAL?.github || '#', label: 'GitHub' },
+                { icon: Linkedin, href: PERSONAL?.linkedin || '#', label: 'LinkedIn' },
+                { icon: Mail, href: GMAIL_LINK || 'mailto:asagara830@gmail.com', label: 'Email' },
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
@@ -241,17 +268,29 @@ export default function Hero() {
 
               {/* Terminal content */}
               <div className="font-mono text-sm space-y-1.5 text-slate-400 mb-6">
-                <p><span className="text-teal-500">const</span> analyst = {'{'}</p>
-                <p className="pl-4"><span className="text-amber-400">name</span>: <span className="text-green-400">"Ashafa Multazam"</span>,</p>
-                <p className="pl-4"><span className="text-amber-400">role</span>: <span className="text-green-400">"Data Analyst"</span>,</p>
-                <p className="pl-4"><span className="text-amber-400">stack</span>: [<span className="text-green-400">"SQL"</span>, <span className="text-green-400">"Python"</span>, <span className="text-green-400">"BigQuery"</span>],</p>
-                <p className="pl-4"><span className="text-amber-400">status</span>: <span className="text-teal-400">available</span>,</p>
-                <p>{'}'}</p>
+                <p>
+                  <span className="text-teal-500">const</span> analyst = &#123;
+                </p>
+                <p className="pl-4">
+                  <span className="text-amber-400">name</span>: <span className="text-green-400">"Sagara Andi Ladzuardi Suwarsa"</span>,
+                </p>
+                <p className="pl-4">
+                  <span className="text-amber-400">degree</span>: <span className="text-green-400">"S1 Sains Data"</span>,
+                </p>
+                <p className="pl-4">
+                  <span className="text-amber-400">stack</span>: [
+                  <span className="text-green-400">"Power BI"</span>, <span className="text-green-400">"Python"</span>,{' '}
+                  <span className="text-green-400">"Excel Expert"</span>, <span className="text-green-400">"SAP"</span>],
+                </p>
+                <p className="pl-4">
+                  <span className="text-amber-400">status</span>: <span className="text-teal-400">available</span>,
+                </p>
+                <p>&#125;</p>
               </div>
 
               {/* Stats grid */}
               <div ref={ref} className="grid grid-cols-2 gap-3">
-                {STATS.map(({ label, value, suffix, prefix, decimals }) => (
+                {statsData.map(({ label, value, suffix, prefix, decimals }) => (
                   <div key={label} className="bg-navy-800/60 rounded-lg p-3.5 border border-slate-700/30">
                     <p className="text-2xl font-display font-700 text-teal-400 leading-none">
                       {prefix}
@@ -263,12 +302,12 @@ export default function Hero() {
                 ))}
               </div>
 
-              {/* Progress bar decoration */}
+              {/* Progress bar decoration - Keterampilan teknis dari CV */}
               <div className="mt-4 space-y-2">
                 {[
-                  { label: 'SQL & Database', val: 85 },
-                  { label: 'Python & Data Science', val: 80 },
-                  { label: 'Data Visualization', val: 78 },
+                  { label: 'Microsoft Excel', val: 97 },
+                  { label: 'Python & Data Science', val: 85 },
+                  { label: 'Power BI & Visualisasi', val: 85 },
                 ].map(({ label, val }) => (
                   <div key={label}>
                     <div className="flex justify-between text-xs text-slate-500 mb-1">
@@ -299,10 +338,7 @@ export default function Hero() {
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-600 hover:text-teal-400 transition-colors"
         >
           <span className="font-mono text-xs tracking-widest">SCROLL</span>
-          <motion.div
-            animate={{ y: [0, 6, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-          >
+          <motion.div animate={{ y: [0, 6, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
             <ArrowDown className="w-4 h-4" />
           </motion.div>
         </motion.button>
