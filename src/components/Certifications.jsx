@@ -101,10 +101,10 @@ export default function Certifications() {
           className="mt-10 glass rounded-xl border border-teal-500/10 p-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
         >
           {[
-            { label: 'Total Sertifikat', value: '12+', icon: '🏅' },
-            { label: 'Jam Pelatihan', value: '200+', icon: '⏱️' },
-            { label: 'Platform', value: '3', icon: '🖥️' },
-            { label: 'Tahun Belajar', value: '2+', icon: '📅' },
+            { label: 'Total Sertifikat', value: '15+', icon: '🏅' },
+            { label: 'Jam Pelatihan', value: '250+', icon: '⏱️' },
+            { label: 'Platform', value: '5', icon: '🖥️' },
+            { label: 'Tahun Belajar', value: '4+', icon: '📅' },
           ].map(({ label, value, icon }) => (
             <div key={label}>
               <div className="text-2xl mb-1">{icon}</div>
