@@ -63,7 +63,7 @@ export default function Navbar() {
             <Database className="w-4 h-4 text-teal-400" />
           </div>
           <span className="font-display font-700 text-sm text-slate-100 hidden sm:block">
-            Ashafa<span className="text-teal-400">.dev</span>
+            Sagara<span className="text-teal-400">.dev</span>
           </span>
         </motion.button>
 
