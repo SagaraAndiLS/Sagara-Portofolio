@@ -13,7 +13,7 @@ import { PERSONAL, EDUCATION, CERTIFICATIONS, PROJECTS } from '../data/portfolio
 const PHOTO_FILE = 'Sagara.png'
 const PHOTO_SHAPE = 'arch'
 const CV_FILE = 'CV-Sagara-Andi-Ladzuardi-Suwarsa.pdf'
-const HEADLINE = 'Mengubah data mentah menjadi keputusan yang bisa ditindaklanjuti.'
+const HEADLINE = 'Fresh Graduate S1 Sains Data Bersemangat Memanfaatkan Teknologi dan Data.'
 /* ─────────────────────────────────────────────────────────── */
 
 const SHAPES = {
@@ -25,24 +25,25 @@ const shape = SHAPES[PHOTO_SHAPE] || SHAPES.arch
 const fadeMask = 'linear-gradient(to bottom, #000 80%, transparent 100%)'
 
 const BASE = import.meta.env.BASE_URL
-const edu = EDUCATION[0]
-const studentWord = edu.status === 'Lulus' ? 'lulusan' : 'mahasiswa'
+const edu = EDUCATION[0] || { degree: 'S1 Sains Data', institution: 'Universitas Koperasi Indonesia', gpa: '3.61', status: 'Lulus' }
+const studentWord = edu.status === 'Lulus' ? 'fresh graduate' : 'Mahasiswa'
 
 // Hl = key fact (white), Ac = institution / role (teal)
 const Hl = ({ children }) => <span className="text-slate-100 font-medium">{children}</span>
 const Ac = ({ children }) => <span className="text-teal-400 font-medium">{children}</span>
 
 const highlights = [
-  `${edu.degree} di ${edu.institution}, IPK ${edu.gpa}`,
-  `${PROJECTS.length} proyek analisis data dengan SQL, Python, dan visualisasi`,
-  `${CERTIFICATIONS.length} pelatihan dan sertifikasi di bidang data dan AI`,
+  'Fresh graduate S1 Sains Data Universitas Koperasi Indonesia (IPK 3.61)',
+  'Pengalaman magang Departemen SI&OP di PT UTC Aerospace System Bandung Operations (Safran Electronics & Defense)',
+  'Pengalaman Asisten Laboratorium & Korps Protokoler Mahasiswa Universitas Koperasi Indonesia',
+  'Sertifikasi Microsoft Excel Expert & SAP Analytics Cloud Training',
   'Terbuka untuk magang dan posisi entry-level Data Analyst',
 ]
 
 const stats = [
-  { value: edu.gpa, label: 'IPK' },
-  { value: PROJECTS.length, label: 'Proyek' },
-  { value: CERTIFICATIONS.length, label: 'Sertifikasi' },
+  { value: edu.gpa || '3.61', label: 'IPK' },
+  { value: PROJECTS.length || '2', label: 'Proyek' },
+  { value: CERTIFICATIONS.length || '2', label: 'Sertifikasi' },
 ]
 
 export default function About() {
@@ -75,7 +76,7 @@ export default function About() {
                   <div className="absolute inset-0 overflow-hidden rounded-[inherit] border border-teal-500/30 glow-teal-sm bg-navy-800">
                     <img
                       src={photoSrc}
-                      alt={`Foto ${PERSONAL.name}`}
+                      alt={`Foto ${PERSONAL?.name || 'SAGARA ANDI LADZUARDI SUWARSA'}`}
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
@@ -84,7 +85,7 @@ export default function About() {
                     <div className="absolute inset-x-4 top-12 bottom-0 rounded-full bg-teal-500/20 blur-3xl" />
                     <img
                       src={photoSrc}
-                      alt={`Foto ${PERSONAL.name}`}
+                      alt={`Foto ${PERSONAL?.name || 'SAGARA ANDI LADZUARDI SUWARSA'}`}
                       className="relative w-full h-full object-contain object-bottom"
                       style={{ WebkitMaskImage: fadeMask, maskImage: fadeMask }}
                     />
@@ -96,14 +97,14 @@ export default function About() {
                   transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
                   className="absolute top-6 -right-4 glass rounded-lg px-3 py-1.5 border border-teal-500/20"
                 >
-                  <span className="font-mono text-xs text-teal-400">IPK {edu.gpa} ⭐</span>
+                  <span className="font-mono text-xs text-teal-400">IPK {edu.gpa || '3.61'} ⭐</span>
                 </motion.div>
                 <motion.div
                   animate={{ y: [0, 8, 0] }}
                   transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
                   className="absolute bottom-10 -left-4 glass rounded-lg px-3 py-1.5 border border-amber-500/20"
                 >
-                  <span className="font-mono text-xs text-amber-400">{PERSONAL.title} 📊</span>
+                  <span className="font-mono text-xs text-amber-400">{PERSONAL?.title || 'Sains Data'} 📊</span>
                 </motion.div>
               </div>
 
@@ -125,17 +126,11 @@ export default function About() {
 
               <div className="space-y-4 text-slate-400 leading-relaxed">
                 <p>
-                  Saya <Hl>{PERSONAL.name}</Hl>, {studentWord} <Ac>{edu.degree}</Ac> di{' '}
-                  <Ac>{edu.institution}</Ac> yang berfokus pada <Hl>analisis data</Hl> dan{' '}
-                  <Hl>machine learning</Hl>. Saya terbiasa mengolah data mentah, mulai dari
-                  pembersihan data dan <Hl>query SQL</Hl> hingga visualisasi, agar hasilnya mudah
-                  dipahami oleh orang yang mengambil keputusan.
+                  Saya <Hl>{PERSONAL?.name || 'SAGARA ANDI LADZUARDI SUWARSA'}</Hl>, {studentWord} <Ac>S1 Sains Data</Ac> dari{' '}
+                  <Ac>Universitas Koperasi Indonesia</Ac> dengan IPK 3.61. Saya bersemangat dalam memanfaatkan teknologi dan data untuk memecahkan masalah, didukung dengan keterampilan di bidang <Hl>SQL, Tableu, Power BI, Python, dan Microsoft Excel</Hl>.
                 </p>
                 <p>
-                  Saya belajar lewat <Hl>proyek nyata</Hl> dan pelatihan, dan senang{' '}
-                  <Hl>bekerja dalam tim</Hl>. Pengalaman organisasi melatih saya berkomunikasi dan
-                  berkoordinasi dengan banyak pihak. Saat ini saya mencari kesempatan{' '}
-                  <Ac>magang</Ac> atau posisi <Ac>entry-level</Ac> sebagai <Ac>Data Analyst</Ac>.
+                  Memiliki pengalaman magang di <Ac>Departemen SI&OP PT UTC Aerospace System Bandung Operations (Safran Electronics & Defense)</Ac> untuk memproses data operasional, menganalisis variansi favorable/unfavorable, dan mengidentifikasi potensi hambatan produksi (bottleneck). Selain itu, saya berpengalaman sebagai <Ac>Asisten Laboratorium Komputer dan Software I</Ac> dan <Ac>Korps Protokoler Mahasiswa</Ac> di Universitas Koperasi Indonesia.
                 </p>
               </div>
 
