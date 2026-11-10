@@ -156,18 +156,7 @@ export const ORGANIZATIONS = [
       'Membantu manajemen tata tempat, tamu undangan, dan acara untuk mendukung kelancaran berbagai seremonial resmi tingkat universitas.',
     ],
   },
-  {
-    role: 'Asisten Laboratorium Komputer',
-    org: 'Universitas Koperasi Indonesia',
-    location: 'Kab. Sumedang, Jawa Barat',
-    period: 'September 2024 – Agustus 2025',
-    icon: '💻',
-    events: [
-      'Membantu Dosen dalam penyelenggaraan kegiatan praktikum mata kuliah Komputer dan Software I bagi mahasiswa.',
-      'Membimbing, mengarahkan, dan membantu mahasiswa dalam memahami materi Microsoft Office beserta Mendeley.',
-      'Melakukan evaluasi, pengecekan tugas praktikum, dan membantu mengelola fasilitas laboratorium komputer selama periode akademik.',
-    ]
-  }
+  
 ]
 export const PROFESSIONAL_EXPERIENCE = [
 {
@@ -183,44 +172,33 @@ export const PROFESSIONAL_EXPERIENCE = [
       'Mengidentifikasi potensi terjadinya hambatan produksi (bottleneck) untuk mendukung evaluasi efisiensi waktu operasional perusahaan.',
    ],
   },
+  {
+    role: 'Asisten Laboratorium Komputer',
+    org: 'Universitas Koperasi Indonesia',
+    location: 'Kab. Sumedang, Jawa Barat',
+    period: 'September 2024 – Agustus 2025',
+    icon: '💻',
+    events: [
+      'Membantu Dosen dalam penyelenggaraan kegiatan praktikum mata kuliah Komputer dan Software I bagi mahasiswa.',
+      'Membimbing, mengarahkan, dan membantu mahasiswa dalam memahami materi Microsoft Office beserta Mendeley.',
+      'Melakukan evaluasi, pengecekan tugas praktikum, dan membantu mengelola fasilitas laboratorium komputer selama periode akademik.',
+    ]
+  }
 ]
 
 export const PROJECTS = [
   {
-    title: 'Dashboard Kependudukan RT 04 Sawangan Depok',
-    description: `Visualisasi demografi kependudukan tingkat RT 
-    mencakup distribusi tingkat pendidikan, struktur demografi (usia & gender), 
-    komposisi profesi, dan sebaran agama untuk optimalisasi pemetaan serta pelayanan publik lokal.`,
-    tech: ['Looker Studio', 'Data Visualization', 'Data Analytics'],
+    title: 'Analisis Efektivitas Edukasi Digital dalam Meningkatkan Kesadaran Jejak DIgital (Uji McNemar).',
+    description: `Riset tindakan pada siswa SMPN 3 Pamulihan untuk mengukur peningkatan kesadaran jejak digital sebelum dan sesudah intervensi edukasi menggunakan metode statistik non-parametrik Uji McNemar`, 
+    tech: ['Python', 'Pandas', 'SciPy', 'Uji McNemar', 'Google Colab'],
     icon: '👥',
     status: 'Selesai',
     link: 'gdrive',
   },
   {
-    title: 'HR Analytics Dashboard',
-    description: `Dashboard analitik SDM interaktif untuk memetakan metrik attrition karyawan (16.3%), 
-    analisis turnover berdasarkan pengalaman kerja, kelompok usia, tingkat gaji (Salary Slab), 
-    serta kepuasan tiap peran jabatan (Job Role & Satisfaction).`,
-    tech: ['Power BI', 'HR Analytics', 'Business Intelligence', 'Data analysis'],
-    icon: '📊',
-    status: 'Selesai',
-    link: 'gdrive',
-  },
-  {
-    title: 'Dashboard Global Superstore (MSIB RevoU)',
-    description: `Analisis performa bisnis ritel global yang mengidentifikasi kendala profitabilitas kategori Furniture, 
-    evaluasi pola kerugian (minus profit) pada sub-kategori Tables & Bookcases, 
-    efisiensi biaya pengiriman per wilayah, serta rasio metode pengiriman.`,
-    tech: ['Power BI','Kaggle', 'Business Analytics', 'Data Visualization', 'SQL','Google Colab'],
-    icon: '🛒',
-    status: 'Selesai',
-    link: 'gdrive',
-  },
-  {
-    title: 'Dashboard Proyek Business Intelligence',
-    description: `Pengembangan dashboard Business Intelligence multi-dimensi yang mengintegrasikan metrik kinerja operasional, 
-    analisis segmentasi pelanggan (Customer Value & Segment), serta pemantauan biaya logistik untuk mendukung pengambilan keputusan strategis.`,
-    tech: ['Power BI','Dax', 'BigQuery', 'SQL', 'Data Analytics','Data Visualization'],
+    title: 'Analisis Regresi Linear Berganda Hubungan Pekerjaan & Kualitas Tidur Terhadap Kesehatan',
+    description: `Studi pemodelan statistik kuantitatif untuk mengidentifikasi variabel hubungan antara beban kerja, durasi, serta kualitas tidur terhadap tingkat kesehatan tubuh.`,
+    tech: ['Python', 'Statsmodels', 'Scikit-Learn', 'Matlplotlib, Microsoft Excel'],
     icon: '⚙️',
     status: 'Selesai',
     link: 'gdrive',
