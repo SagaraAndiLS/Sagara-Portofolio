@@ -13,58 +13,58 @@ export const PERSONAL = {
         dengan IPK 3.61. Mampu problem solving yang baik dan bekerja secara 
         mandiri maupun dalam tim, berminat berkontribusi dalam proyek-proyek yang menantang.`,
 }
-export const GMAIL_LINK = `https://mail.google.com/mail/?view=cm&fs=1&to=${PERSONAL.email}&su=${encodeURIComponent('Halo Asagara, saya tertarik berdiskusi')}`
+export const GMAIL_LINK = `https://mail.google.com/mail/?view=cm&fs=1&to=${PERSONAL.email}&su=${encodeURIComponent('Halo Sagara, saya tertarik berdiskusi')}`
 
 export const STATS = [
   { label: 'IPK', value: 3.61, suffix: '', prefix: '', decimals: 2 },
-  { label: 'Sertifikasi', value: 12, suffix: '+', prefix: '' },
-  { label: 'Jam Bootcamp', value: 200, suffix: '+', prefix: '' },
-  { label: 'Proyek Selesai', value: 8, suffix: '+', prefix: '' },
+  { label: 'Sertifikasi', value: 10, suffix: '+', prefix: '' },
+  { label: 'Jam Bootcamp', value: 150, suffix: '+', prefix: '' },
+  { label: 'Proyek Selesai', value: 5, suffix: '+', prefix: '' },
 ]
 
 export const SKILLS = [
   {
-    category: 'Data & Database',
+   category: 'Data & Database',
     icon: '🗄️',
     color: 'teal',
     items: [
-      { name: 'SQL / PostgreSQL', level: 85 },
-      { name: 'Google BigQuery', level: 80 },
-      { name: 'Data Cleansing', level: 82 },
-      { name: 'Basic Statistics', level: 78 },
-    ]
+      { name: 'Microsoft Excel (Expert)', level: 97 },
+      { name: 'Power BI', level: 85 },
+      { name: 'Python', level: 88 },
+      { name: 'Data Processing & Cleansing', level: 90 },
+    ],
   },
   {
-    category: 'Programming',
-    icon: '🐍',
+    category: 'Analisis & Pemodelan',
+    icon: '📊',
     color: 'amber',
     items: [
-      { name: 'Python', level: 80 },
-      { name: 'Google Colaboratory', level: 85 },
-      { name: 'Pandas / NumPy', level: 75 },
-      { name: 'Data Wrangling', level: 78 },
-    ]
+      { name: 'Analisis Variansi (Favorable/Unfavorable)', level: 92 },
+      { name: 'Identifikasi Bottleneck Produksi', level: 90 },
+      { name: 'Uji McNemar (Nonparametrik)', level: 85 },
+      { name: 'Regresi Linear Berganda', level: 88 },
+    ],
   },
   {
     category: 'Visualisasi & Tools',
-    icon: '📊',
+    icon: '⚙️',
     color: 'teal',
     items: [
-      { name: 'Google Looker Studio', level: 86 },
-      { name: 'Data Visualization', level: 86 },
-      { name: 'Microsoft Excel', level: 85 },
-      { name: 'Power BI', level: 90 },
-    ]
+      { name: 'SAP Analytics Cloud', level: 82 },
+      { name: 'Mendeley Desktop', level: 90 },
+      { name: 'Microsoft Office Suite', level: 95 },
+      { name: 'Google Colaboratory', level: 85 },
+    ],
   },
   {
     category: 'Soft Skills',
     icon: '🧠',
     color: 'amber',
     items: [
+      { name: 'Kepemimpinan & Organisasi', level: 90 },
+      { name: 'Komunikasi & Adaptabilitas', level: 92 },
+      { name: 'Manajemen Keprotokolan', level: 88 },
       { name: 'Problem Solving', level: 88 },
-      { name: 'Team Collaboration', level: 90 },
-      { name: 'Communication', level: 82 },
-      { name: 'Leadership', level: 80 },
     ]
   },
 ]
@@ -72,88 +72,115 @@ export const SKILLS = [
 export const EDUCATION = [
   {
     degree: 'S1 Sains Data',
-    institution: 'Universitas Koperasi Indonesia (IKOPIN)',
-    location: 'Jatinangor',
-    period: 'September 2022 – 2026',
+    institution: 'Universitas Koperasi Indonesia',
+    location: 'Kab. Sumedang, Jawa Barat, Indonesia',
+    period: '2022 – 2026',
     gpa: '3.61',
     status: 'Lulus',
     icon: '🎓',
-    description: `Lulusan S1 Sains Data dengan IPK 3,61 yang dibekali fondasi statistika, pemrograman, dan machine learning. 
-    Terbiasa mengolah data mentah menjadi insight melalui pembersihan data, analisis, dan visualisasi. 
-    Menyelesaikan tugas akhir tentang Segmentasi produk laptop pada E-Commerce Tokopedia menggunakan K-Means Clustering 
-    serta proyek analisis data yang dapat dilihat di bagian Projects.`,
+    description: `Fresh graduate S1 Sains Data dengan IPK 3.61 yang dibekali keahlian dalam analisis data operasional, pemodelan statistik, dan machine learning. Menyelesaikan tugas akhir berjudul "Klasifikasi Prediktif Efisiensi Waktu Operasi Menggunakan Algoritma Random Forest dan Decision Tree". Memiliki pengalaman magang di Departemen SI&OP serta aktif memimpin organisasi kemahasiswaan dan mempublikasikan riset ilmiah di jurnal nasional.`,
+  },
+  {
+    degree: 'SMA (IPA)',
+    institution: 'SMAN 1 Jatinangor',
+    location: 'Kab. Sumedang, Jawa Barat, Indonesia',
+    period: '2019 – 2022',
+    gpa: '-',
+    status: 'Lulus',
+    icon: '🏫',
+    description: 'Pendidikan Menengah Atas dengan peminatan Ilmu Pengetahuan Alam (IPA).',
+  },
+  {
+    degree: 'SMP',
+    institution: 'SMPN 3 Jatinangor',
+    location: 'Kab. Sumedang, Jawa Barat, Indonesia',
+    period: '2016 – 2019',
+    gpa: '-',
+    status: 'Lulus',
+    icon: '🏫',
+    description: 'Pendidikan Menengah Pertama.',
+    
   },
   
 ]
 
 export const CERTIFICATIONS = [
   {
-    title: 'Data Analytics and Gen AI',
-    issuer: 'RevoU',
-    period: 'Agustus 6 – Desember 31, 2024',
-    topics: ['Data Analysis', 'Python', 'Data Visualization', 'SQL', 'Basic Statistics', 'Data Cleansing','Power BI','Google Collab'],
-    badge: '🥇',
+    title: 'Teknologi Informasi Dan Komunikasi - Microsoft Excel',
+    issuer: 'Karirnex',
+    period: 'April 2024 – Mei 2024',
+    topics: ['Microsoft Excel', 'Data Processing', 'Spreadsheet Analysis', 'Advanced Excel'],
+    badge: '📊',
+    color: 'teal',
+    highlight: true,
+  },
+  {
+    title: 'Teknologi Informasi Dan Komunikasi - ASEAN Data Science Explorers: Enablement Session',
+    issuer: 'ASEAN Foundation & SAP Southeast Asia',
+    period: 'Mei 2023',
+    topics: ['SAP Analytics Cloud Training', 'Business Analytics', 'Data Visualization'],
+    badge: '☁️',
     color: 'amber',
     highlight: true,
   },
   {
-    title: 'AI for Work & Career Readiness with Google AI Products',
-    issuer: 'Hacktiv8 Indonesia',
-    period: 'Maret 7 – Maret 16, 2026',
-    topics: ['AI for Work', 'Career Readiness', 'Google AI Products', 'Final Project','Gamma AI','Gemini'],
-    badge: '🤖',
-    color: 'teal',
-  },
-  {
-    title: 'TOEFL ITP (450)',
+    title: 'TOEFL ITP (520)',
     issuer: 'Pusat Bahasa UNPAD',
     period: 'Juli 2026 – Juli 2026',
     topics: ['TOEFL ITP', 'Grammar', 'Reading', 'Listening', 'Speaking', 'Writing'],
     badge: '🌐',
     color: 'amber',
   },
-  
-  {
-  title: 'AWS AI Academy 2026',
-    issuer: 'Dicoding',
-    period: 'Oktober 2026 – Oktober 2029',
-    topics: ['AWS Cloud Foundation', 'Machine Learning', 'Generative AI', 'Data Analytics', 'Prompt Engineering'],
-    badge: '☁️',
-    color: 'teal',
-  },
 ]
 
 export const ORGANIZATIONS = [
   {
-    role: 'Wakil Ketua',
-    org: 'Himpunan Mahasiswa Sains Data',
-    location: 'Jatinangor',
-    period: 'Oktober 2023 – Desember 2024',
-    icon: '📚',
+   role: 'Himpunan Mahasiswa Sains Data',
+    org: 'Universitas Koperasi Indonesia',
+    location: 'Kab. Sumedang, Jawa Barat',
+    period: '2022 – 2024',
+    icon: '👥',
     events: [
-      `Mengoordinasikan seluruh bidang dan menjaga sinergi antarpengurus 
-      dalam pelaksanaan program kerja himpunan selama satu periode kepengurusan.`,
-      'Mewakili ketua dalam kegiatan organisasi serta membimbing pengurus internal.',
-      `Bertanggung jawab atas 6 program kerja dari 4 bidang yang 
-      melibatkan 24 pengurus selama satu periode.`,
+      'Aktif dalam struktur organisasi kemahasiswaan program studi Sains Data.',
+      'Memimpin dan mengoordinasikan berbagai program kerja serta kepanitiaan untuk mendukung kegiatan akademik dan non-akademik mahasiswa.',
+    ],
+  },
+  {
+    role: 'Korps Protokoler Mahasiswa',
+    org: 'Universitas Koperasi Indonesia',
+    location: 'Kab. Sumedang, Jawa Barat',
+    period: 'September 2022 – Oktober 2024',
+    icon: '👔',
+    events: [
+      'Berpartisipasi dalam kegiatan keprotokolan kampus.',
+      'Membantu manajemen tata tempat, tamu undangan, dan acara untuk mendukung kelancaran berbagai seremonial resmi tingkat universitas.',
+    ],
+  },
+  {
+    role: 'Asisten Laboratorium Komputer',
+    org: 'Universitas Koperasi Indonesia',
+    location: 'Kab. Sumedang, Jawa Barat',
+    period: 'September 2024 – Agustus 2025',
+    icon: '💻',
+    events: [
+      'Membantu Dosen dalam penyelenggaraan kegiatan praktikum mata kuliah Komputer dan Software I bagi mahasiswa.',
+      'Membimbing, mengarahkan, dan membantu mahasiswa dalam memahami materi Microsoft Office beserta Mendeley.',
+      'Melakukan evaluasi, pengecekan tugas praktikum, dan membantu mengelola fasilitas laboratorium komputer selama periode akademik.',
     ]
   }
 ]
 export const PROFESSIONAL_EXPERIENCE = [
 {
-  role: 'Human Capital Intern',
-  company: 'Pertamina Patra Niaga RU VI Balongan',
-  type: 'Magang',
-  period: 'Februari 2026 – Maret 2026',
-  location: 'Indramayu',
-  icon: '💼',
-  points: [
-  'Menjadi panitia pelatihan karyawan dengan 300 peserta.', 
-  'bertanggung jawab atas administrasi dan dokumentasi kegiatan.',
-  `Membangun database sertifikasi dan pelatihan untuk ±300 karyawan di Excel dengan pelacakan masa berlaku sertifikat, 
-  sehingga pencarian data dan pemantauan sertifikat yang akan kedaluwarsa jadi lebih cepat.`,
-  `Mengaudit dan menstandarkan 1.256 dokumen karyawan dari sistem lama ke struktur folder terstandar dengan checklist kelengkapan, 
-  sehingga data siap dimigrasikan ke sistem baru.`,
+  role: 'Intern - Departemen SI&OP',
+    company: 'PT UTC Aerospace System Bandung Operations (Safran Electronics & Defense)',
+    type: 'Magang',
+    period: 'Februari 2026 – Februari 2026',
+    location: 'Kota Bandung, Jawa Barat',
+    icon: '💼',
+    points: [
+      'Memproses dan mengelola data operasional produksi menggunakan Microsoft Excel.',
+      'Melakukan perhitungan dan menganalisis variansi untuk menentukan status favorable dan unfavorable pada proses produksi.',
+      'Mengidentifikasi potensi terjadinya hambatan produksi (bottleneck) untuk mendukung evaluasi efisiensi waktu operasional perusahaan.',
    ],
   },
 ]
