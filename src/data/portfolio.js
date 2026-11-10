@@ -17,9 +17,9 @@ export const GMAIL_LINK = `https://mail.google.com/mail/?view=cm&fs=1&to=${PERSO
 
 export const STATS = [
   { label: 'IPK', value: 3.61, suffix: '', prefix: '', decimals: 2 },
-  { label: 'Sertifikasi', value: 10, suffix: '+', prefix: '' },
-  { label: 'Jam Bootcamp', value: 150, suffix: '+', prefix: '' },
-  { label: 'Proyek Selesai', value: 5, suffix: '+', prefix: '' },
+  { label: 'Sertifikasi', value: 3, suffix: '+', prefix: '' },
+  { label: 'Jam Bootcamp', value: 250, suffix: '+', prefix: '' },
+  { label: 'Proyek Selesai', value: 2, suffix: '+', prefix: '' },
 ]
 
 export const SKILLS = [
