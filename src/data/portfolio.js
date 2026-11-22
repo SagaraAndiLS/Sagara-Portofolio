@@ -193,7 +193,7 @@ export const PROJECTS = [
     tech: ['Python', 'Pandas', 'SciPy', 'Uji McNemar', 'Google Colab'],
     icon: '👥',
     status: 'Selesai',
-    link: 'gdrive',
+    link: 'https://journal2.ikopin.ac.id/index.php/dataenthusiast/article/view/14',
   },
   {
     title: 'Analisis Regresi Linear Berganda Hubungan Pekerjaan & Kualitas Tidur Terhadap Kesehatan',
@@ -201,6 +201,22 @@ export const PROJECTS = [
     tech: ['Python', 'Statsmodels', 'Scikit-Learn', 'Matlplotlib, Microsoft Excel'],
     icon: '⚙️',
     status: 'Selesai',
-    link: 'gdrive',
+    link: 'https://journal2.ikopin.ac.id/index.php/dataenthusiast/article/view/8',
+  },
+  {
+    title: 'Manufacturing Performance Dashboard (Power BI)',
+    description: `Dashboard interaktif untuk memantau performa manufaktur berdasarkan jenis produk, negara, lokasi gudang, dan waktu. Menampilkan biaya produksi, volume produksi, tren bulanan, serta efisiensi biaya per unit, lengkap dengan filter tahun, jenis produk, dan negara.`,
+    tech: ['Power BI', 'DAX', 'Power Query', 'Data Visualization'],
+    icon: '📊',
+    status: 'Selesai',
+    link: 'https://github.com/SagaraAndiLS/manufacturing-performance-dashboard',
+  },
+  {
+    title: 'Strategic Manufacturing Dashboard untuk Analisis Kinerja Produksi dan Kualitas Produk',
+    description: `Tugas praktikum Kecerdasan Bisnis yang mengolah data produksi dan data kecacatan produk menjadi dashboard strategis. Mencakup proses ETL dan cleaning, data modeling, serta KPI seperti total produksi, total biaya, dan rata-rata defect rate untuk melihat hubungan volume produksi dengan kualitas.`,
+    tech: ['Power BI', 'DAX', 'Power Query', 'ETL', 'Data Modeling'],
+    icon: '🏭',
+    status: 'Selesai',
+    link: 'https://github.com/SagaraAndiLS/manufacturing-dashboard-powerbi',
   },
 ]
