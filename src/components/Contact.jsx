@@ -7,6 +7,11 @@ import { PERSONAL, GMAIL_LINK  } from '../data/portfolio'
 
 const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID
 
+// Komentar hanya tampil kalau Supabase sudah dikonfigurasi
+const COMMENTS_ENABLED = Boolean(
+  import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY
+)
+
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
   const [submitting, setSubmitting] = useState(false)
@@ -25,9 +30,27 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!validate()) return
+
+    // Tanpa Formspree: buka Gmail dengan isi pesan yang sudah terisi
+    if (!FORMSPREE_ID) {
+      const subject = form.subject.trim() || `Pesan dari ${form.name}`
+      const body = `Nama: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
+      window.open(
+        `https://mail.google.com/mail/?view=cm&fs=1&to=${PERSONAL.email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+        '_blank',
+        'noreferrer'
+      )
+      Swal.fire({
+        title: 'Gmail dibuka',
+        text: 'Pesan Anda sudah terisi. Tinggal tekan Kirim di Gmail.',
+        icon: 'info',
+        confirmButtonText: 'Oke',
+      })
+      return
+    }
+
     setSubmitting(true)
     try {
-      if (!FORMSPREE_ID) throw new Error('Formspree belum dikonfigurasi')
       const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -83,7 +106,7 @@ export default function Contact() {
           <div className="flex-1 h-px bg-gradient-to-r from-teal-500/20 to-transparent ml-4" />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+        <div className={`grid lg:grid-cols-2 gap-12 ${COMMENTS_ENABLED ? 'mb-16' : ''}`}>
           {/* Left: Info */}
           <div data-aos="fade-right">
             <p className="text-slate-400 leading-relaxed mb-8">
@@ -202,15 +225,17 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Comment section */}
-        <div className="border-t border-slate-800 pt-12" data-aos="fade-up">
-          <div className="flex items-center gap-3 mb-10">
-            <MessageCircle className="w-5 h-5 text-teal-400" />
-            <h3 className="font-display font-700 text-2xl text-slate-100">Tamu & Komentar</h3>
-            <div className="flex-1 h-px bg-gradient-to-r from-teal-500/20 to-transparent ml-2" />
+        {/* Comment section (hanya tampil jika Supabase sudah dikonfigurasi) */}
+        {COMMENTS_ENABLED && (
+          <div className="border-t border-slate-800 pt-12" data-aos="fade-up">
+            <div className="flex items-center gap-3 mb-10">
+              <MessageCircle className="w-5 h-5 text-teal-400" />
+              <h3 className="font-display font-700 text-2xl text-slate-100">Tamu & Komentar</h3>
+              <div className="flex-1 h-px bg-gradient-to-r from-teal-500/20 to-transparent ml-2" />
+            </div>
+            <Comments />
           </div>
-          <Comments />
-        </div>
+        )}
       </div>
     </section>
   )
