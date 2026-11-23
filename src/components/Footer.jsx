@@ -23,7 +23,7 @@ export default function Footer() {
 
           {/* Center text */}
           <p className="text-slate-600 text-xs font-mono text-center">
-            © {year} Sagara Andi L S— Built with{' '}
+            © {year} Sagara Andi L S — Built with{' '}
             <Heart className="inline w-3 h-3 text-red-400 mx-0.5" />
             using React + Supabase
           </p>
