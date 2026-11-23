@@ -73,10 +73,12 @@ export default function Education() {
                         <MapPin className="w-3.5 h-3.5 text-teal-500/60" />
                         <span className="text-xs">{edu.location}</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Award className="w-3.5 h-3.5 text-amber-500/60" />
-                        <span className="font-mono text-xs text-amber-400">IPK {edu.gpa}</span>
-                      </div>
+                      {edu.gpa && (
+                        <div className="flex items-center gap-2">
+                          <Award className="w-3.5 h-3.5 text-amber-500/60" />
+                          <span className="font-mono text-xs text-amber-400">IPK {edu.gpa}</span>
+                        </div>
+                      )}
                     </div>
                   </div>
 
