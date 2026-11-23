@@ -44,20 +44,22 @@ export default function Comments() {
   const [comments, setComments] = useState([])
   const [loading, setLoading] = useState(true)
   const [submitting, setSubmitting] = useState(false)
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [form, setForm] = useState({ name: '', message: '' })
   const [errors, setErrors] = useState({})
+
+  // Cegah komentar dobel (hasil insert + event realtime)
+  const addComment = (c) =>
+    setComments(prev => (prev.some(x => x.id === c.id) ? prev : [c, ...prev]))
 
   useEffect(() => {
     loadComments()
 
     // Realtime subscription
     const channel = commentsService.subscribe((payload) => {
-      if (payload.new?.approved) {
-        setComments(prev => [payload.new, ...prev])
-      }
+      if (payload.new?.approved) addComment(payload.new)
     })
 
-    return () => channel?.unsubscribe?.()
+    return () => commentsService.unsubscribe(channel)
   }, [])
 
   const loadComments = async () => {
@@ -93,10 +95,8 @@ export default function Comments() {
     setSubmitting(true)
     try {
       const newComment = await commentsService.create(form)
-      if (newComment?.[0]) {
-        setComments(prev => [newComment[0], ...prev])
-      }
-      setForm({ name: '', email: '', message: '' })
+      if (newComment?.[0]) addComment(newComment[0])
+      setForm({ name: '', message: '' })
       setErrors({})
       Swal.fire({
         title: 'Terima kasih! 🎉',
@@ -141,18 +141,6 @@ export default function Comments() {
               }`}
             />
             {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
-          </div>
-
-          {/* Email */}
-          <div>
-            <label className="block text-xs font-mono text-slate-500 mb-1.5 tracking-wide">EMAIL (opsional)</label>
-            <input
-              type="email"
-              value={form.email}
-              onChange={e => setForm({ ...form, email: e.target.value })}
-              placeholder="email@contoh.com"
-              className="w-full glass rounded-lg px-4 py-3 text-sm text-slate-200 placeholder-slate-600 border border-slate-700/40 transition-colors outline-none focus:border-teal-500/50"
-            />
           </div>
 
           {/* Message */}
