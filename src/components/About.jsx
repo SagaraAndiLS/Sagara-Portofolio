@@ -127,7 +127,7 @@ export default function About() {
               <div className="space-y-4 text-slate-400 leading-relaxed">
                 <p>
                   Saya <Hl>{PERSONAL?.name || 'SAGARA ANDI LADZUARDI SUWARSA'}</Hl>, {studentWord} <Ac>S1 Sains Data</Ac> dari{' '}
-                  <Ac>Universitas Koperasi Indonesia</Ac> dengan IPK 3.61. Saya bersemangat dalam memanfaatkan teknologi dan data untuk memecahkan masalah, didukung dengan keterampilan di bidang <Hl>SQL, Tableu, Power BI, Python, dan Microsoft Excel</Hl>.
+                  <Ac>Universitas Koperasi Indonesia</Ac> dengan IPK 3.61. Saya bersemangat dalam memanfaatkan teknologi dan data untuk memecahkan masalah, didukung dengan keterampilan di bidang <Hl>SQL, Tableau, Power BI, Python, dan Microsoft Excel</Hl>.
                 </p>
                 <p>
                   Memiliki pengalaman magang di <Ac>Departemen SI&OP PT UTC Aerospace System Bandung Operations (Safran Electronics & Defense)</Ac> untuk memproses data operasional, menganalisis variansi favorable/unfavorable, dan mengidentifikasi potensi hambatan produksi (bottleneck). Selain itu, saya berpengalaman sebagai <Ac>Asisten Laboratorium Komputer dan Software I</Ac> dan <Ac>Korps Protokoler Mahasiswa</Ac> di Universitas Koperasi Indonesia.
