@@ -4,7 +4,12 @@ import { Layers, ExternalLink, Github, Tag, FileText } from 'lucide-react'
 import { PROJECTS, PERSONAL } from '../data/portfolio'
 
 const BASE = import.meta.env.BASE_URL
-const THUMB_RATIO = 'aspect-[2/1]'    
+
+const linkKind = (url = '') => {
+  if (url.includes('github.com')) return { badge: 'GITHUB', action: 'Buka Repository' }
+  if (/drive\.google\.com|\.pdf($|\?)/i.test(url)) return { badge: 'PDF', action: 'Buka PDF' }
+  return { badge: 'ARTIKEL', action: 'Buka Artikel' }
+}
 
 
 // Pulls the file id out of a Google Drive link (…/d/FILE_ID/view or …?id=FILE_ID)
@@ -22,13 +27,14 @@ function previewSrc(project) {
 function Thumb({ project }) {
   const [failed, setFailed] = useState(false)
   const src = previewSrc(project)
+  const kind = linkKind(project.link)
 
   return (
     <div className="relative aspect-[2/1] overflow-hidden bg-navy-800 border-b border-slate-700/30">
       {src && !failed ? (
         <img
           src={src}
-          alt={`Pratinjau PDF ${project.title}`}
+          alt={`Pratinjau ${project.title}`}
           loading="lazy"
           onError={() => setFailed(true)}
           className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
@@ -42,12 +48,12 @@ function Thumb({ project }) {
       {project.link && (
         <>
           <span className="absolute top-3 left-3 px-2 py-0.5 rounded glass font-mono text-[10px] text-teal-400">
-            PDF
+            {kind.badge}
           </span>
           <div className="absolute inset-0 flex items-end justify-end p-3 bg-gradient-to-t from-navy-900/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md glass text-xs font-medium text-teal-300">
               <FileText className="w-3.5 h-3.5" />
-              Buka PDF
+              {kind.action}
             </span>
           </div>
         </>
@@ -82,7 +88,7 @@ export default function Projects() {
                   href: project.link,
                   target: '_blank',
                   rel: 'noreferrer',
-                  'aria-label': `Buka PDF ${project.title}`,
+                  'aria-label': `${linkKind(project.link).action}: ${project.title}`,
                 }
               : {}
 
