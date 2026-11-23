@@ -12,11 +12,11 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
 // ─── Comments Service ──────────────────────────────────────────
 export const commentsService = {
-  // Ambil semua komentar yang sudah diapprove
+  // Ambil semua komentar yang sudah diapprove (tanpa kolom email)
   async getAll() {
     const { data, error } = await supabase
       .from('comments')
-      .select('*')
+      .select('id, name, message, created_at')
       .eq('approved', true)
       .order('created_at', { ascending: false })
     if (error) throw error
@@ -24,11 +24,11 @@ export const commentsService = {
   },
 
   // Kirim komentar baru
-  async create({ name, email, message }) {
+  async create({ name, message }) {
     const { data, error } = await supabase
       .from('comments')
-      .insert([{ name, email, message, approved: true }])
-      .select()
+      .insert([{ name: name.trim(), message: message.trim(), approved: true }])
+      .select('id, name, message, created_at')
     if (error) throw error
     return data
   },
@@ -36,7 +36,7 @@ export const commentsService = {
   // Subscribe realtime
   subscribe(callback) {
     return supabase
-      .channel('comments')
+      .channel(`comments-${Math.random().toString(36).slice(2)}`)
       .on('postgres_changes', {
         event: 'INSERT',
         schema: 'public',
@@ -44,6 +44,10 @@ export const commentsService = {
         filter: 'approved=eq.true'
       }, callback)
       .subscribe()
+  },
+
+  unsubscribe(channel) {
+    if (channel) supabase.removeChannel(channel)
   }
 }
 
@@ -66,11 +70,11 @@ export const viewsService = {
 
 // ─── SQL SETUP SCRIPT (jalankan di Supabase SQL Editor) ─────────
 /*
--- Buat tabel comments
+-- Buat tabel comments (tanpa kolom email agar tidak bocor ke publik)
+-- Jika tabel sudah ada: ALTER TABLE comments DROP COLUMN email;
 CREATE TABLE comments (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
-  email VARCHAR(255),
   message TEXT NOT NULL,
   approved BOOLEAN DEFAULT true,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
