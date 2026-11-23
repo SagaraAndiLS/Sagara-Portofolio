@@ -5,6 +5,8 @@ import Swal from 'sweetalert2'
 import Comments from './Comments'
 import { PERSONAL, GMAIL_LINK  } from '../data/portfolio'
 
+const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID
+
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
   const [submitting, setSubmitting] = useState(false)
@@ -24,26 +26,42 @@ export default function Contact() {
     e.preventDefault()
     if (!validate()) return
     setSubmitting(true)
-    // Simulate sending (integrate with EmailJS or Supabase)
-    await new Promise(r => setTimeout(r, 1500))
-    setSubmitting(false)
-    setForm({ name: '', email: '', subject: '', message: '' })
-    setErrors({})
-    Swal.fire({
-      title: 'Pesan Terkirim! 🎉',
-      html: `Terima kasih <b>${form.name}</b>! Saya akan membalas pesan Anda secepatnya.`,
-      icon: 'success',
-      confirmButtonText: 'Oke!',
-      timer: 4000,
-      timerProgressBar: true,
-    })
+    try {
+      if (!FORMSPREE_ID) throw new Error('Formspree belum dikonfigurasi')
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) throw new Error('Gagal mengirim')
+      const name = form.name
+      setForm({ name: '', email: '', subject: '', message: '' })
+      setErrors({})
+      Swal.fire({
+        title: 'Pesan Terkirim! 🎉',
+        text: `Terima kasih ${name}! Saya akan membalas pesan Anda secepatnya.`,
+        icon: 'success',
+        confirmButtonText: 'Oke!',
+        timer: 4000,
+        timerProgressBar: true,
+      })
+    } catch {
+      Swal.fire({
+        title: 'Gagal mengirim',
+        text: 'Silakan coba lagi, atau hubungi saya lewat email/WhatsApp.',
+        icon: 'error',
+        confirmButtonText: 'Oke',
+      })
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   const contactItems = [
     { icon: Mail, label: 'Email', value: PERSONAL.email, href: GMAIL_LINK, color: 'teal' },
-    { icon: Phone, label: 'WhatsApp', value: PERSONAL.phone, href: `https://wa.me/6289604182218`, color: 'teal' },
+    { icon: Phone, label: 'WhatsApp', value: PERSONAL.phone, href: `https://wa.me/${PERSONAL.phone.replace(/\D/g, '')}`, color: 'teal' },
     { icon: MapPin, label: 'Lokasi', value: PERSONAL.location, href: null, color: 'amber' },
-    { icon: Linkedin, label: 'LinkedIn', value: 'SagaraAndiLS', href: PERSONAL.linkedin, color: 'teal' },
+    { icon: Linkedin, label: 'LinkedIn', value: 'sagaraandiladzuardi', href: PERSONAL.linkedin, color: 'teal' },
     { icon: Github, label: 'GitHub', value: 'SagaraAndiLS', href: PERSONAL.github, color: 'amber' },
   ]
 
@@ -119,7 +137,7 @@ export default function Contact() {
           {/* Right: Form */}
           <div data-aos="fade-left">
             <form onSubmit={handleSubmit} className="glass rounded-xl border border-slate-700/30 p-6 space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-mono text-slate-500 mb-1.5 tracking-wide">NAMA *</label>
                   <input
