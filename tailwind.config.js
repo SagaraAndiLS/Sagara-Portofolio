@@ -6,6 +6,18 @@ export default {
   ],
   theme: {
     extend: {
+      fontWeight: {
+        300: '300',
+        500: '500',
+        600: '600',
+        700: '700',
+        800: '800',
+      },
+      opacity: {
+        3: '0.03',
+        4: '0.04',
+        8: '0.08',
+      },
       fontFamily: {
         display: ['Sora', 'sans-serif'],
         body: ['DM Sans', 'sans-serif'],
