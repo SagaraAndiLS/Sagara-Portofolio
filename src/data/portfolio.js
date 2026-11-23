@@ -19,7 +19,7 @@ export const STATS = [
   { label: 'IPK', value: 3.61, suffix: '', prefix: '', decimals: 2 },
   { label: 'Sertifikasi', value: 3, suffix: '+', prefix: '' },
   { label: 'Jam Bootcamp', value: 250, suffix: '+', prefix: '' },
-  { label: 'Proyek Selesai', value: 2, suffix: '+', prefix: '' },
+  { label: 'Proyek Selesai', value: 4, suffix: '', prefix: '' },
 ]
 
 export const SKILLS = [
@@ -124,7 +124,7 @@ export const CERTIFICATIONS = [
   {
     title: 'TOEFL ITP (520)',
     issuer: 'Pusat Bahasa UNPAD',
-    period: 'Juli 2026 – Juli 2026',
+    period: 'Juli 2026',
     topics: ['TOEFL ITP', 'Grammar', 'Reading', 'Listening', 'Speaking', 'Writing'],
     badge: '🌐',
     color: 'amber',
@@ -172,11 +172,12 @@ export const PROFESSIONAL_EXPERIENCE = [
   },
   {
     role: 'Asisten Laboratorium Komputer',
-    org: 'Universitas Koperasi Indonesia',
+    company: 'Universitas Koperasi Indonesia',
+    type: 'Asisten',
     location: 'Kab. Sumedang, Jawa Barat',
     period: 'September 2024 – Agustus 2025',
     icon: '💻',
-    events: [
+    points: [
       'Membantu Dosen dalam penyelenggaraan kegiatan praktikum mata kuliah Komputer dan Software I bagi mahasiswa.',
       'Membimbing, mengarahkan, dan membantu mahasiswa dalam memahami materi Microsoft Office beserta Mendeley.',
       'Melakukan evaluasi, pengecekan tugas praktikum, dan membantu mengelola fasilitas laboratorium komputer selama periode akademik.',
@@ -186,7 +187,7 @@ export const PROFESSIONAL_EXPERIENCE = [
 
 export const PROJECTS = [
   {
-    title: 'Analisis Efektivitas Edukasi Digital dalam Meningkatkan Kesadaran Jejak DIgital (Uji McNemar).',
+    title: 'Analisis Efektivitas Edukasi Digital dalam Meningkatkan Kesadaran Jejak Digital (Uji McNemar)',
     description: `Riset tindakan pada siswa SMPN 3 Pamulihan untuk mengukur peningkatan kesadaran jejak digital sebelum dan sesudah intervensi edukasi menggunakan metode statistik non-parametrik Uji McNemar`, 
     tech: ['Python', 'Pandas', 'SciPy', 'Uji McNemar', 'Google Colab'],
     icon: '👥',
@@ -196,7 +197,7 @@ export const PROJECTS = [
   {
     title: 'Analisis Regresi Linear Berganda Hubungan Pekerjaan & Kualitas Tidur Terhadap Kesehatan',
     description: `Studi pemodelan statistik kuantitatif untuk mengidentifikasi variabel hubungan antara beban kerja, durasi, serta kualitas tidur terhadap tingkat kesehatan tubuh.`,
-    tech: ['Python', 'Statsmodels', 'Scikit-Learn', 'Matlplotlib, Microsoft Excel'],
+    tech: ['Python', 'Statsmodels', 'Scikit-Learn', 'Matplotlib', 'Microsoft Excel'],
     icon: '⚙️',
     status: 'Selesai',
     link: 'https://journal2.ikopin.ac.id/index.php/dataenthusiast/article/view/8',
