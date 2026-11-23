@@ -306,7 +306,7 @@ export default function Hero() {
               <div className="mt-4 space-y-2">
                 {[
                   { label: 'Microsoft Excel', val: 97 },
-                  { label: 'Python & Data Science', val: 85 },
+                  { label: 'Python & Data Science', val: 88 },
                   { label: 'Power BI & Visualisasi', val: 85 },
                 ].map(({ label, val }) => (
                   <div key={label}>
