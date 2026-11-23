@@ -86,7 +86,7 @@ export default function Navbar() {
           href={GMAIL_LINK}
           target="_blank"
           rel="noreferrer"
-          className="btn-primary text-sm mt-2 justify-center"
+          className="btn-primary text-sm justify-center"
           >
             Hubungi Saya
             </a>
