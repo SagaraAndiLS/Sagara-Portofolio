@@ -59,9 +59,9 @@ const techStack = [
   { name: 'NumPy', color: '#F59E0B' },
   { name: 'Google Colab', color: '#F59E0B' },
   { name: 'Excel (IF, XLOOKUP, Match, Index, Pivot Table)', color: '#22C55E' },
-  { name: 'Power Point', color: '#EF4444' },
+  { name: 'PowerPoint', color: '#EF4444' },
   { name: 'GitHub', color: '#94A3B8' },
-  { name: 'Matlab', color: '#8B5CF6' },
+  { name: 'MATLAB', color: '#8B5CF6' },
   { name: 'Power BI', color: '#EF4444' },
   { name: 'Canva', color: '#3B82F6' },
 
