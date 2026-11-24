@@ -11,7 +11,7 @@ import { PERSONAL, EDUCATION, CERTIFICATIONS, PROJECTS } from '../data/portfolio
      'circle' → round photo
      'cutout' → no frame; use a PNG with transparent background */
 const PHOTO_FILE = 'Sagara.webp'
-const PHOTO_SHAPE = 'arch'
+const PHOTO_SHAPE = 'og-image.jpg'
 const CV_FILE = 'CV-Sagara-Andi-Ladzuardi-Suwarsa.pdf'
 const HEADLINE = 'Fresh Graduate S1 Sains Data Bersemangat Memanfaatkan Teknologi dan Data.'
 /* ─────────────────────────────────────────────────────────── */
