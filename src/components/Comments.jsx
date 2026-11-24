@@ -6,7 +6,7 @@ import { commentsService } from '../lib/supabase'
 
 function CommentItem({ comment, index }) {
   const initials = comment.name?.slice(0, 2).toUpperCase() || 'AN'
-  const colors = ['#14B8A6', '#F59E0B', '#8B5CF6', '#EC4899', '#3B82F6']
+  const colors = ['#818CF8', '#FF8F73', '#34D399', '#F472B6', '#60A5FA']
   const color = colors[comment.name?.charCodeAt(0) % colors.length] || colors[0]
 
   return (
@@ -121,9 +121,9 @@ export default function Comments() {
   return (
     <div className="grid lg:grid-cols-2 gap-8">
       {/* Form */}
-      <div data-aos="fade-right">
+      <div data-reveal="right">
         <h3 className="font-display font-600 text-xl text-slate-200 mb-6 flex items-center gap-2">
-          <MessageSquare className="w-5 h-5 text-teal-400" />
+          <MessageSquare className="w-5 h-5 text-accent-400" />
           Tinggalkan Komentar
         </h3>
 
@@ -136,11 +136,11 @@ export default function Comments() {
               value={form.name}
               onChange={e => setForm({ ...form, name: e.target.value })}
               placeholder="Nama lengkap Anda"
-              className={`w-full glass rounded-lg px-4 py-3 text-sm text-slate-200 placeholder-slate-600 border transition-colors outline-none focus:border-teal-500/50 ${
-                errors.name ? 'border-red-500/40' : 'border-slate-700/40'
+              className={`w-full glass rounded-lg px-4 py-3 text-sm text-slate-200 placeholder-slate-600 border transition-colors outline-none focus:border-accent-500/50 ${
+                errors.name ? 'border-danger/40' : 'border-slate-700/40'
               }`}
             />
-            {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
+            {errors.name && <p className="text-danger text-xs mt-1">{errors.name}</p>}
           </div>
 
           {/* Message */}
@@ -151,11 +151,11 @@ export default function Comments() {
               value={form.message}
               onChange={e => setForm({ ...form, message: e.target.value })}
               placeholder="Tulis pesan Anda di sini..."
-              className={`w-full glass rounded-lg px-4 py-3 text-sm text-slate-200 placeholder-slate-600 border transition-colors outline-none focus:border-teal-500/50 resize-none ${
-                errors.message ? 'border-red-500/40' : 'border-slate-700/40'
+              className={`w-full glass rounded-lg px-4 py-3 text-sm text-slate-200 placeholder-slate-600 border transition-colors outline-none focus:border-accent-500/50 resize-none ${
+                errors.message ? 'border-danger/40' : 'border-slate-700/40'
               }`}
             />
-            {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message}</p>}
+            {errors.message && <p className="text-danger text-xs mt-1">{errors.message}</p>}
           </div>
 
           <button
@@ -173,20 +173,20 @@ export default function Comments() {
       </div>
 
       {/* Comments list */}
-      <div data-aos="fade-left">
+      <div data-reveal="left">
         <div className="flex items-center justify-between mb-6">
           <h3 className="font-display font-600 text-xl text-slate-200 flex items-center gap-2">
-            <User className="w-5 h-5 text-teal-400" />
+            <User className="w-5 h-5 text-accent-400" />
             Komentar
           </h3>
-          <span className="font-mono text-xs text-teal-400 glass px-2.5 py-1 rounded-full border border-teal-500/20">
+          <span className="font-mono text-xs text-accent-400 glass px-2.5 py-1 rounded-full border border-accent-500/20">
             {comments.length} komentar
           </span>
         </div>
 
         {loading ? (
           <div className="flex items-center justify-center py-12">
-            <Loader2 className="w-6 h-6 text-teal-400 animate-spin" />
+            <Loader2 className="w-6 h-6 text-accent-400 animate-spin" />
           </div>
         ) : comments.length === 0 ? (
           <div className="text-center py-12 text-slate-600">
