@@ -6,14 +6,14 @@ export default function Footer() {
 
   return (
     <footer className="relative border-t border-slate-800/80 mt-4">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(20,184,166,0.04)_0%,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgb(var(--accent-500) / 0.06)_0%,transparent_60%)]" />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo */}
           <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded bg-teal-500/10 border border-teal-500/20 flex items-center justify-center">
-              <Database className="w-3.5 h-3.5 text-teal-400" />
+            <div className="w-7 h-7 rounded bg-accent-500/10 border border-accent-500/20 flex items-center justify-center">
+              <Database className="w-3.5 h-3.5 text-accent-400" />
             </div>
             <div>
               <p className="font-display font-700 text-sm text-slate-200">Sagara Andi L S</p>
@@ -24,8 +24,8 @@ export default function Footer() {
           {/* Center text */}
           <p className="text-slate-600 text-xs font-mono text-center">
             © {year} Sagara Andi L S — Built with{' '}
-            <Heart className="inline w-3 h-3 text-red-400 mx-0.5" />
-            using React + Supabase
+            <Heart className="inline w-3 h-3 text-danger mx-0.5" />
+            dengan React
           </p>
 
           {/* Social */}
@@ -40,7 +40,7 @@ export default function Footer() {
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 glass rounded border border-slate-700/40 flex items-center justify-center text-slate-500 hover:text-teal-400 hover:border-teal-500/30 transition-all"
+                className="w-8 h-8 glass rounded border border-slate-700/40 flex items-center justify-center text-slate-500 hover:text-accent-400 hover:border-accent-500/30 transition-all"
               >
                 <Icon className="w-3.5 h-3.5" />
               </a>
@@ -52,7 +52,7 @@ export default function Footer() {
         <div className="flex justify-center mt-6">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-2 text-xs font-mono text-slate-600 hover:text-teal-400 transition-colors"
+            className="flex items-center gap-2 text-xs font-mono text-slate-600 hover:text-accent-400 transition-colors"
           >
             ↑ Kembali ke atas
           </button>
