@@ -2,31 +2,58 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/Sagara-Portofolio/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Sagara Andi Ladzuardi Suwarsa - Data & Business Analyst Portfolio | Power BI, Excel, SAP, Python"
-    />
-    <meta
-      name="keywords"
-      content="data analyst, business analyst, python, excel expert, power bi, sap, portfolio, sagara andi, sagara andi ladzuardi suwarsa"
-    />
-    <meta property="og:title" content="Sagara Andi Ladzuardi Suwarsa | Data & Business Analyst" />
-    <meta
-      property="og:description"
-      content="Portfolio Data & Business Analyst - Power BI, Excel, SAP Analytics Cloud, Python"
-    />
-    <title>Sagara Andi Ladzuardi Suwarsa | Data & Business Analyst</title>
+    <meta name="theme-color" content="#0C0D1A" />
+    <title>Sagara Andi Ladzuardi Suwarsa | Data Analyst</title>
+    <meta name="description" content="Portofolio Sagara Andi Ladzuardi Suwarsa, lulusan S1 Sains Data (IPK 3,61). Analisis data operasional, dashboard Power BI, dan pemodelan statistik dengan Python." />
+    <meta name="keywords" content="data analyst, sains data, power bi, python, excel, sagara andi ladzuardi suwarsa, portofolio" />
+    <link rel="canonical" href="https://sagaraandils.github.io/Sagara-Portofolio/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:title" content="Sagara Andi Ladzuardi Suwarsa | Data Analyst" />
+    <meta property="og:description" content="Dashboard Power BI, analisis data operasional, dan pemodelan statistik." />
+    <meta property="og:url" content="https://sagaraandils.github.io/Sagara-Portofolio/" />
+    <meta property="og:image" content="https://sagaraandils.github.io/Sagara-Portofolio/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Pasang tema sebelum halaman tampil, supaya tidak berkedip -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', t);
+          if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#F6F7FB');
+        } catch (e) {}
+      })();
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      media="print"
+      onload="this.media='all'"
     />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+    </noscript>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sagara Andi Ladzuardi Suwarsa",
+        "jobTitle": "Data Analyst",
+        "url": "https://sagaraandils.github.io/Sagara-Portofolio/",
+        "sameAs": ["https://github.com/SagaraAndiLS", "https://www.linkedin.com/in/sagaraandiladzuardi"]
+      }
+    </script>
   </head>
-  <body class="bg-navy-900">
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
