@@ -10,7 +10,7 @@ import { PERSONAL, EDUCATION, CERTIFICATIONS, PROJECTS } from '../data/portfolio
      'arch'   → top rounded like a doorway (default)
      'circle' → round photo
      'cutout' → no frame; use a PNG with transparent background */
-const PHOTO_FILE = 'Sagara.png'
+const PHOTO_FILE = 'Sagara.webp'
 const PHOTO_SHAPE = 'arch'
 const CV_FILE = 'CV-Sagara-Andi-Ladzuardi-Suwarsa.pdf'
 const HEADLINE = 'Fresh Graduate S1 Sains Data Bersemangat Memanfaatkan Teknologi dan Data.'
@@ -30,7 +30,7 @@ const studentWord = edu.status === 'Lulus' ? 'fresh graduate' : 'Mahasiswa'
 
 // Hl = key fact (white), Ac = institution / role (teal)
 const Hl = ({ children }) => <span className="text-slate-100 font-medium">{children}</span>
-const Ac = ({ children }) => <span className="text-teal-400 font-medium">{children}</span>
+const Ac = ({ children }) => <span className="text-accent-400 font-medium">{children}</span>
 
 const highlights = [
   'Fresh graduate S1 Sains Data Universitas Koperasi Indonesia (IPK 3.61)',
@@ -51,29 +51,29 @@ export default function About() {
 
   return (
     <section id="about" className="section-base relative overflow-hidden">
-      <div className="absolute top-0 left-1/3 w-96 h-96 bg-teal-500/4 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/3 w-96 h-96 bg-accent-500/4 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* One centered block (58rem = photo 18rem + gap 4rem + text 36rem) */}
         <div className="max-w-[58rem] mx-auto">
           {/* Section header */}
-          <div className="flex items-center gap-4 mb-14" data-aos="fade-right">
-            <div className="w-10 h-10 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center">
-              <User className="w-5 h-5 text-teal-400" />
+          <div className="flex items-center gap-4 mb-14" data-reveal="right">
+            <div className="w-10 h-10 rounded-lg bg-accent-500/10 border border-accent-500/20 flex items-center justify-center">
+              <User className="w-5 h-5 text-accent-400" />
             </div>
             <div>
-              <p className="font-mono text-xs text-teal-500 tracking-widest mb-0.5">01 / ABOUT</p>
+              <p className="font-mono text-xs text-accent-500 tracking-widest mb-0.5">01 / ABOUT</p>
               <h2 className="font-display font-700 text-3xl text-slate-100">Tentang Saya</h2>
             </div>
-            <div className="flex-1 h-px bg-gradient-to-r from-teal-500/20 to-transparent ml-4" />
+            <div className="flex-1 h-px bg-gradient-to-r from-accent-500/20 to-transparent ml-4" />
           </div>
 
           <div className="grid lg:grid-cols-[18rem_minmax(0,36rem)] lg:justify-center gap-12 lg:gap-16 items-center">
             {/* Left: photo */}
-            <div data-aos="fade-right" data-aos-delay="100" className="flex flex-col items-center">
+            <div data-reveal="right" data-delay="100" className="flex flex-col items-center">
               <div className={`relative w-64 sm:w-72 ${shape.box}`}>
                 {shape.framed ? (
-                  <div className="absolute inset-0 overflow-hidden rounded-[inherit] border border-teal-500/30 glow-teal-sm bg-navy-800">
+                  <div className="absolute inset-0 overflow-hidden rounded-[inherit] border border-accent-500/30 glow-accent-sm bg-ink-800">
                     <img
                       src={photoSrc}
                       alt={`Foto ${PERSONAL?.name || 'SAGARA ANDI LADZUARDI SUWARSA'}`}
@@ -82,7 +82,7 @@ export default function About() {
                   </div>
                 ) : (
                   <>
-                    <div className="absolute inset-x-4 top-12 bottom-0 rounded-full bg-teal-500/20 blur-3xl" />
+                    <div className="absolute inset-x-4 top-12 bottom-0 rounded-full bg-accent-500/20 blur-3xl" />
                     <img
                       src={photoSrc}
                       alt={`Foto ${PERSONAL?.name || 'SAGARA ANDI LADZUARDI SUWARSA'}`}
@@ -95,16 +95,16 @@ export default function About() {
                 <motion.div
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute top-6 -right-4 glass rounded-lg px-3 py-1.5 border border-teal-500/20"
+                  className="absolute top-6 -right-4 glass rounded-lg px-3 py-1.5 border border-accent-500/20"
                 >
-                  <span className="font-mono text-xs text-teal-400">IPK {edu.gpa || '3.61'} ⭐</span>
+                  <span className="font-mono text-xs text-accent-400">IPK {edu.gpa || '3.61'} ⭐</span>
                 </motion.div>
                 <motion.div
                   animate={{ y: [0, 8, 0] }}
                   transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                  className="absolute bottom-10 -left-4 glass rounded-lg px-3 py-1.5 border border-amber-500/20"
+                  className="absolute bottom-10 -left-4 glass rounded-lg px-3 py-1.5 border border-coral-500/20"
                 >
-                  <span className="font-mono text-xs text-amber-400">{PERSONAL?.title || 'Sains Data'} 📊</span>
+                  <span className="font-mono text-xs text-coral-400">{PERSONAL?.title || 'Sains Data'} 📊</span>
                 </motion.div>
               </div>
 
@@ -119,7 +119,7 @@ export default function About() {
             </div>
 
             {/* Right: story */}
-            <div data-aos="fade-left" data-aos-delay="200">
+            <div data-reveal="left" data-delay="200">
               <h3 className="font-display font-700 text-2xl lg:text-3xl text-slate-100 leading-tight mb-5">
                 {HEADLINE}
               </h3>
@@ -144,7 +144,7 @@ export default function About() {
                     transition={{ delay: i * 0.1 }}
                     className="flex items-start gap-3"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-accent-400 mt-0.5 shrink-0" />
                     <span className="text-slate-300 text-sm">{item}</span>
                   </motion.li>
                 ))}
