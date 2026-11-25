@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Award, Calendar, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react'
 import { CERTIFICATIONS } from '../data/portfolio'
@@ -6,7 +6,8 @@ import { CERTIFICATIONS } from '../data/portfolio'
 const BASE = import.meta.env.BASE_URL
 
 // ══ ISI LINK & GAMBAR SERTIFIKAT DI SINI ══
-// Judul di kiri harus sama persis dengan title di src/data/portfolio.js
+// Judul di kiri harus sama dengan title di src/data/portfolio.js
+// (perbedaan tanda hubung, spasi, dan huruf besar-kecil sudah diabaikan)
 //   link      : link sertifikat (kosong = tidak bisa diklik)
 //   image     : nama file gambar yang ada di folder public/ (tulis nama filenya saja,
 //               tanpa "public/"). Kosong = tampil ikon.
@@ -33,10 +34,25 @@ const CERT_EXTRAS = {
   },
 }
 
+// Samakan bentuk teks: semua jenis tanda hubung jadi "-", spasi dirapikan, huruf kecil
+const norm = (s = '') =>
+  s
+    .normalize('NFKC')
+    .replace(/[\u2010-\u2015\u2212]/g, '-')
+    .replace(/[\s\u00a0\u200b]+/g, ' ')
+    .trim()
+    .toLowerCase()
+
+const EXTRAS_BY_KEY = Object.fromEntries(
+  Object.entries(CERT_EXTRAS).map(([title, extra]) => [norm(title), extra])
+)
+
+const getExtra = (title) => EXTRAS_BY_KEY[norm(title)]
+
 const MAX_TOPICS = 4
 
 function CertCard({ cert, offset, onSelect }) {
-  const extra = CERT_EXTRAS[cert.title] ?? {}
+  const extra = getExtra(cert.title) ?? {}
   const glow = extra.glow ?? (cert.color === 'accent' ? '#818CF8' : '#FF8F73')
   const link = extra.link
   const abs = Math.abs(offset)
@@ -200,6 +216,18 @@ function ArrowButton({ onClick, disabled, label, children }) {
 export default function Certifications() {
   const [active, setActive] = useState(0)
   const last = CERTIFICATIONS.length - 1
+
+  // Peringatan di Console (F12) kalau ada sertifikat yang tidak ketemu di CERT_EXTRAS
+  useEffect(() => {
+    CERTIFICATIONS.forEach((c) => {
+      if (!getExtra(c.title)) {
+        console.warn(
+          `[Certifications] Tidak ada data link/gambar untuk judul: "${c.title}". ` +
+            'Samakan dengan salah satu kunci di CERT_EXTRAS.'
+        )
+      }
+    })
+  }, [])
 
   const go = (i) => setActive(Math.max(0, Math.min(last, i)))
 
