@@ -24,7 +24,7 @@ export const STATS = [
 
 export const SKILLS = [
   {
-   category: 'Data & Database',
+    category: 'Data & Database',
     icon: '🗄️',
     color: 'teal',
     items: [
@@ -65,7 +65,7 @@ export const SKILLS = [
       { name: 'Komunikasi & Adaptabilitas', level: 92 },
       { name: 'Manajemen Keprotokolan', level: 88 },
       { name: 'Problem Solving', level: 88 },
-    ]
+    ],
   },
 ]
 
@@ -78,7 +78,7 @@ export const EDUCATION = [
     gpa: '3.61',
     status: 'Lulus',
     icon: '🎓',
-    description: `Fresh graduate S1 Sains Data dengan IPK 3.61 yang dibekali keahlian dalam analisis data operasional, pemodelan statistik, dan machine learning. Menyelesaikan tugas akhir berjudul "Klasifikasi Prediktif Efisiensi Waktu Operasi Menggunakan Algoritma Random Forest dan Decision Tree". Memiliki pengalaman magang di Departemen SI&OP serta aktif memimpin organisasi kemahasiswaan dan mempublikasikan riset ilmiah di jurnal nasional.`,
+    description: `Fresh graduate S1 Sains Data dengan IPK 3.61 yang dibekali keahlian dalam analisis data operasional, pemodelan statistik, dan machine learning. Menyelesaikan tugas akhir berjudul \"Klasifikasi Prediktif Efisiensi Waktu Operasi Menggunakan Algoritma Random Forest dan Decision Tree\". Memiliki pengalaman magang di Departemen SI&OP serta aktif memimpin organisasi kemahasiswaan dan mempublikasikan riset ilmiah di jurnal nasional.`,
   },
   {
     degree: 'SMA (IPA)',
@@ -97,9 +97,7 @@ export const EDUCATION = [
     status: 'Lulus',
     icon: '🏫',
     description: 'Pendidikan Menengah Pertama.',
-    
   },
-  
 ]
 
 export const CERTIFICATIONS = [
@@ -122,10 +120,10 @@ export const CERTIFICATIONS = [
     highlight: true,
   },
   {
-    title: 'TOEFL ITP (520)',
-    issuer: 'Pusat Bahasa UNPAD',
-    period: 'Juli 2026',
-    topics: ['TOEFL ITP', 'Grammar', 'Reading', 'Listening', 'Speaking', 'Writing'],
+    title: 'English Language Test (ELT) - 517',
+    issuer: 'Pusat Bahasa Fakultas Ilmu Budaya UNPAD',
+    period: 'Agustus 2026 (berlaku s.d. Agustus 2028)',
+    topics: ['Listening Comprehension', 'Structure & Written Expression', 'Reading Comprehension'],
     badge: '🌐',
     color: 'amber',
   },
@@ -133,62 +131,83 @@ export const CERTIFICATIONS = [
 
 export const ORGANIZATIONS = [
   {
-   role: 'Himpunan Mahasiswa Sains Data',
+    role: 'Ketua Umum Himpunan Mahasiswa Sains Data',
     org: 'Universitas Koperasi Indonesia',
     location: 'Kab. Sumedang, Jawa Barat',
-    period: '2022 – 2024',
+    period: '2023 – 2025',
     icon: '👥',
     events: [
-      'Aktif dalam struktur organisasi kemahasiswaan program studi Sains Data.',
       'Memimpin dan mengoordinasikan berbagai program kerja serta kepanitiaan untuk mendukung kegiatan akademik dan non-akademik mahasiswa.',
     ],
   },
   {
-    role: 'Korps Protokoler Mahasiswa',
+    role: 'Anggota Divisi Perlengkapan, Komisi Pemilu Raya (KPR)',
     org: 'Universitas Koperasi Indonesia',
     location: 'Kab. Sumedang, Jawa Barat',
-    period: 'September 2022 – Oktober 2024',
-    icon: '👔',
-    events: [
-      'Berpartisipasi dalam kegiatan keprotokolan kampus.',
-      'Membantu manajemen tata tempat, tamu undangan, dan acara untuk mendukung kelancaran berbagai seremonial resmi tingkat universitas.',
-    ],
+    period: '2023 – 2024',
+    icon: '🗳️',
   },
-  
+  {
+    role: 'Anggota Divisi Kepelatihan, Ikopin Badminton Club',
+    org: 'Universitas Koperasi Indonesia',
+    location: 'Kab. Sumedang, Jawa Barat',
+    period: '2023 – 2024',
+    icon: '🏸',
+  },
+  {
+    role: 'Staff Magang Kementerian Dalam Negeri',
+    org: 'BEM Jatinangor, Universitas Koperasi Indonesia',
+    location: 'Kab. Sumedang, Jawa Barat',
+    period: '2022',
+    icon: '🏛️',
+  },
 ]
+
 export const PROFESSIONAL_EXPERIENCE = [
-{
-  role: 'Intern - Departemen SI&OP',
-    company: 'PT UTC Aerospace System Bandung Operations (Safran Electronics & Defense)',
+  {
+    role: 'Intern - Departemen SI&OP',
+    company: 'PT UTC Aerospace Systems Bandung Operations (Safran Electronics & Defense)',
     type: 'Magang',
-    period: 'Februari 2026 – Februari 2026',
+    period: '5 Februari 2026 – 27 Februari 2026',
     location: 'Kota Bandung, Jawa Barat',
     icon: '💼',
     points: [
-      'Memproses dan mengelola data operasional produksi menggunakan Microsoft Excel.',
-      'Melakukan perhitungan dan menganalisis variansi untuk menentukan status favorable dan unfavorable pada proses produksi.',
-      'Mengidentifikasi potensi terjadinya hambatan produksi (bottleneck) untuk mendukung evaluasi efisiensi waktu operasional perusahaan.',
-   ],
+      'Mengolah dan membersihkan data produksi (266.752 baris, 37 kolom) dengan Microsoft Excel, lalu menghitung variansi antara Actual dan Standard Hours per Work Center, Part Number, dan Cell menggunakan PivotTable dan Calculated Field.',
+      'Menerapkan Pareto Analysis (batas kumulatif 85%) untuk menunjukkan bahwa variansi terkonsentrasi pada sebagian kecil Work Center, dengan variansi tertinggi 318,35 jam (sekitar 8,9% dari total) sebagai prioritas evaluasi bottleneck.',
+      'Menganalisis pengaruh routing dan order terhadap variansi serta menyusun visualisasi dan laporan.',
+    ],
   },
   {
-    role: 'Asisten Laboratorium Komputer',
+    role: 'Asisten Laboratorium',
     company: 'Universitas Koperasi Indonesia',
     type: 'Asisten',
     location: 'Kab. Sumedang, Jawa Barat',
     period: 'September 2024 – Agustus 2025',
     icon: '💻',
     points: [
-      'Membantu Dosen dalam penyelenggaraan kegiatan praktikum mata kuliah Komputer dan Software I bagi mahasiswa.',
-      'Membimbing, mengarahkan, dan membantu mahasiswa dalam memahami materi Microsoft Office beserta Mendeley.',
-      'Melakukan evaluasi, pengecekan tugas praktikum, dan membantu mengelola fasilitas laboratorium komputer selama periode akademik.',
-    ]
-  }
+      'Membantu dosen dalam praktikum Komputer dan Software I serta membimbing sekitar 9 mahasiswa dalam menggunakan Microsoft Word, Excel, Access, dan Mendeley, mulai dari menyusun laporan di Word, menghitung data di Excel, hingga membuat daftar pustaka di Mendeley.',
+      'Memeriksa dan menilai tugas praktikum serta membantu mengelola fasilitas laboratorium komputer selama periode akademik.',
+    ],
+  },
+  {
+    role: 'Korps Protokoler Mahasiswa (KPM)',
+    company: 'Universitas Koperasi Indonesia',
+    type: 'Protokoler',
+    location: 'Kab. Sumedang, Jawa Barat',
+    period: 'September 2022 – Oktober 2024',
+    icon: '👔',
+    points: [
+      'Bertugas sebagai pembawa bendera program studi pada acara wisuda dan menjadi bagian dari tim protokoler upacara resmi kampus.',
+      'Mengatur dan mendampingi mahasiswa, tamu undangan, serta keluarga wisudawan pada berbagai acara kampus seperti wisuda dan seminar, termasuk pengaturan tempat duduk.',
+      'Berkoordinasi dengan panitia untuk memastikan rangkaian acara berjalan tertib dan sesuai jadwal.',
+    ],
+  },
 ]
 
 export const PROJECTS = [
   {
     title: 'Analisis Efektivitas Edukasi Digital dalam Meningkatkan Kesadaran Jejak Digital (Uji McNemar)',
-    description: `Riset tindakan pada siswa SMPN 3 Pamulihan untuk mengukur peningkatan kesadaran jejak digital sebelum dan sesudah intervensi edukasi menggunakan metode statistik non-parametrik Uji McNemar`, 
+    description: `Riset tindakan pada siswa SMPN 3 Pamulihan untuk mengukur peningkatan kesadaran jejak digital sebelum dan sesudah intervensi edukasi menggunakan metode statistik non-parametrik Uji McNemar`,
     tech: ['Python', 'Pandas', 'SciPy', 'Uji McNemar', 'Google Colab'],
     icon: '👥',
     status: 'Selesai',
