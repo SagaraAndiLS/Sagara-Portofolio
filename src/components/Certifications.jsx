@@ -25,7 +25,7 @@ const CERT_EXTRAS = {
     glow: '#0FAAFF',
     linkLabel: 'Lihat sertifikat (PDF)',
   },
-  'TOEFL ITP (520)': {
+  'English Language Test (ELT) - 517': {
     link: 'https://drive.google.com/file/d/1CN8FSXn7Wvnczq3mcBB7qFZJK6zTxOB3/view?usp=drivesdk',
     image: 'Sertifikat ELT Sagara.jpeg',
     glow: '#F7704F',
