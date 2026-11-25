@@ -19,7 +19,7 @@ const CERT_EXTRAS = {
     linkLabel: 'Lihat sertifikat (PDF)',
   },
   'Teknologi Informasi Dan Komunikasi - ASEAN Data Science Explorers: Enablement Session': {
-    link: '',
+    link: 'https://drive.google.com/file/d/1dRlEeVVHHhqZ1aOUXO9cXKzTDweFdehQ/view?usp=drivesdk',
     image: '',
     glow: '#0FAAFF',
     linkLabel: 'Lihat sertifikat (PDF)',
