@@ -1,7 +1,47 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Briefcase, Users, ChevronDown, ChevronUp, Calendar, MapPin } from 'lucide-react'
+import { Briefcase, Users, ChevronDown, ChevronUp, Calendar, MapPin, ExternalLink } from 'lucide-react'
 import { ORGANIZATIONS, PROFESSIONAL_EXPERIENCE } from '../data/portfolio'
+
+const BASE = import.meta.env.BASE_URL
+
+// ══ ISI BUKTI PENGALAMAN DI SINI ══
+// Kunci di kiri = role di src/data/portfolio.js (beda tanda hubung/spasi/huruf besar tidak masalah)
+//   link      : link bukti (sertifikat/surat keterangan, misal Google Drive). Kosong = tombol tidak muncul.
+//   linkLabel : tulisan di tombol
+//   photos    : daftar nama file foto yang ada di folder public/ (tulis nama filenya saja,
+//               tanpa "public/"). Kosong = tidak ada foto.
+const PRO_PROOF = {
+  'Intern - Departemen SI&OP': {
+    link: '',
+    linkLabel: 'Lihat bukti magang',
+    photos: [],
+  },
+  'Asisten Laboratorium': {
+    link: '',
+    linkLabel: 'Lihat bukti asisten lab',
+    photos: [],
+  },
+  'Korps Protokoler Mahasiswa (KPM)': {
+    link: '', // KPM tidak ada sertifikat, cukup foto
+    linkLabel: '',
+    photos: [], // contoh: ['KPM 1.jpg', 'KPM 2.jpg']
+  },
+}
+
+// Samakan bentuk teks supaya pencocokan kunci tidak rewel
+const norm = (s = '') =>
+  s
+    .normalize('NFKC')
+    .replace(/[\u2010-\u2015\u2212]/g, '-')
+    .replace(/[\s\u00a0\u200b]+/g, ' ')
+    .trim()
+    .toLowerCase()
+
+const PROOF_BY_KEY = Object.fromEntries(
+  Object.entries(PRO_PROOF).map(([role, proof]) => [norm(role), proof])
+)
+const getProof = (role) => PROOF_BY_KEY[norm(role)] ?? {}
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 16 },
@@ -20,7 +60,7 @@ function IconBox({ children }) {
 
 function Meta({ period, location }) {
   return (
-    <div className="flex flex-wrap gap-3 mt-2">
+    <div className="flex flex-wrap gap-x-3 gap-y-1.5 mt-2">
       <div className="flex items-center gap-1.5 text-slate-500 text-xs">
         <Calendar className="w-3 h-3" />
         <span className="font-mono">{period}</span>
@@ -35,7 +75,7 @@ function Meta({ period, location }) {
   )
 }
 
-function ColumnTitle({ icon: Icon, title, note }) {
+function SectionTitle({ icon: Icon, title, note }) {
   return (
     <div className="mb-5">
       <div className="flex items-center gap-2.5">
@@ -48,45 +88,93 @@ function ColumnTitle({ icon: Icon, title, note }) {
 }
 
 function ProCard({ item, delay }) {
+  const proof = getProof(item.role)
+  const photos = proof.photos ?? []
+
   return (
-    <motion.div {...fadeUp(delay)} className="glass glass-hover rounded-xl border border-slate-700/30 p-5">
-      <div className="flex items-start gap-4">
-        <IconBox>{item.icon || '💼'}</IconBox>
-        <div className="flex-1 min-w-0">
-          <div className="flex flex-wrap items-center gap-2">
-            <h4 className="font-display font-600 text-sm text-slate-100 leading-tight">{item.role}</h4>
-            {item.type && (
-              <span className="font-mono text-[10px] px-2 py-0.5 rounded border border-coral-500/20 bg-coral-500/10 text-coral-400">
-                {item.type}
-              </span>
+    <motion.div {...fadeUp(delay)} className="glass glass-hover rounded-xl border border-slate-700/30 p-5 sm:p-6">
+      <div className="grid gap-5 lg:grid-cols-[minmax(0,19rem)_minmax(0,1fr)] lg:gap-8">
+        {/* Kiri: identitas */}
+        <div className="flex items-start gap-4">
+          <IconBox>{item.icon || '💼'}</IconBox>
+          <div className="flex-1 min-w-0">
+            <div className="flex flex-wrap items-center gap-2">
+              <h4 className="font-display font-600 text-sm text-slate-100 leading-tight">{item.role}</h4>
+              {item.type && (
+                <span className="font-mono text-[10px] px-2 py-0.5 rounded border border-coral-500/20 bg-coral-500/10 text-coral-400">
+                  {item.type}
+                </span>
+              )}
+            </div>
+            <p className="text-accent-400 text-xs mt-0.5 font-medium">{item.company}</p>
+            <Meta period={item.period} location={item.location} />
+
+            {proof.link && (
+              <a
+                href={proof.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-1.5 rounded-lg border border-accent-500/30 bg-accent-500/10 px-3 py-1.5 text-xs font-600 text-accent-400 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent-500/60"
+              >
+                {proof.linkLabel || 'Lihat bukti'}
+                <ExternalLink className="w-3 h-3" />
+              </a>
             )}
           </div>
-          <p className="text-accent-400 text-xs mt-0.5 font-medium">{item.company}</p>
-          <Meta period={item.period} location={item.location} />
+        </div>
+
+        {/* Kanan: deskripsi + foto */}
+        <div className="min-w-0">
+          {item.metrics?.length > 0 && (
+            <dl className="mb-4 grid grid-cols-2 sm:grid-cols-3 gap-2">
+              {item.metrics.map(({ value, label }) => (
+                <div key={label} className="rounded-xl bg-ink-700/70 border border-slate-700/30 px-3 py-2.5">
+                  <dt className="font-display font-800 text-base text-accent-400 leading-none">{value}</dt>
+                  <dd className="text-[10px] text-slate-500 mt-1.5 leading-snug">{label}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
+
+          {item.points?.length > 0 && (
+            <ul className="space-y-2 pl-3 border-l border-accent-500/20">
+              {item.points.map((point, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="w-1 h-1 rounded-full bg-accent-500 mt-2 shrink-0" />
+                  <span className="text-slate-400 text-sm leading-relaxed">{point}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {photos.length > 0 && (
+            <div className="mt-5 flex flex-wrap gap-3">
+              {photos.map((file) => {
+                const src = `${BASE}${encodeURI(file)}`
+                return (
+                  <a
+                    key={file}
+                    href={src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block overflow-hidden rounded-xl border border-slate-700/40 transition-all duration-300 hover:-translate-y-1 hover:border-accent-500/50"
+                    style={{ boxShadow: 'var(--card-shadow)' }}
+                    aria-label={`Buka foto ${item.role}`}
+                  >
+                    <img
+                      src={src}
+                      alt={`Dokumentasi ${item.role}`}
+                      loading="lazy"
+                      draggable={false}
+                      className="h-28 sm:h-32 w-auto max-w-[16rem] object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </a>
+                )
+              })}
+            </div>
+          )}
         </div>
       </div>
-
-      {item.metrics?.length > 0 && (
-        <dl className="mt-4 grid grid-cols-3 gap-2">
-          {item.metrics.map(({ value, label }) => (
-            <div key={label} className="rounded-xl bg-ink-700/70 border border-slate-700/30 px-3 py-2.5">
-              <dt className="font-display font-800 text-base text-accent-400 leading-none">{value}</dt>
-              <dd className="text-[10px] text-slate-500 mt-1.5 leading-snug">{label}</dd>
-            </div>
-          ))}
-        </dl>
-      )}
-
-      {item.points?.length > 0 && (
-        <ul className="mt-4 space-y-1.5 pl-3 border-l border-accent-500/20">
-          {item.points.map((point, i) => (
-            <li key={i} className="flex items-start gap-2">
-              <span className="w-1 h-1 rounded-full bg-accent-500 mt-1.5 shrink-0" />
-              <span className="text-slate-400 text-xs leading-relaxed">{point}</span>
-            </li>
-          ))}
-        </ul>
-      )}
     </motion.div>
   )
 }
@@ -136,7 +224,6 @@ function OrgCard({ org, delay }) {
 }
 
 export default function Experience() {
-  // Without professional entries, the organizational list simply takes the full width.
   const hasPro = PROFESSIONAL_EXPERIENCE.length > 0
 
   return (
@@ -155,15 +242,16 @@ export default function Experience() {
           <div className="flex-1 h-px bg-gradient-to-r from-accent-500/20 to-transparent ml-4" />
         </div>
 
-        <div className={hasPro ? 'grid lg:grid-cols-2 gap-10 items-start' : ''}>
+        <div className="space-y-14">
+          {/* Pengalaman profesional (lebar penuh) */}
           {hasPro && (
             <div>
-              <ColumnTitle
+              <SectionTitle
                 icon={Briefcase}
                 title="Pengalaman Profesional"
                 note="Magang, pekerjaan, dan peran berbasis proyek"
               />
-              <div className="space-y-4">
+              <div className="space-y-5">
                 {PROFESSIONAL_EXPERIENCE.map((item, i) => (
                   <ProCard key={`${item.role}-${i}`} item={item} delay={i * 0.08} />
                 ))}
@@ -171,13 +259,14 @@ export default function Experience() {
             </div>
           )}
 
+          {/* Pengalaman organisasi (di bawahnya) */}
           <div>
-            <ColumnTitle
+            <SectionTitle
               icon={Users}
               title="Pengalaman Organisasi"
               note="Kepemimpinan dan keterlibatan komunitas"
             />
-            <div className={hasPro ? 'space-y-4' : 'grid sm:grid-cols-2 gap-4'}>
+            <div className="grid md:grid-cols-2 gap-4 items-start">
               {ORGANIZATIONS.map((org, i) => (
                 <OrgCard key={`${org.role}-${i}`} org={org} delay={i * 0.08} />
               ))}
