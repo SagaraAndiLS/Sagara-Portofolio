@@ -20,7 +20,7 @@ const CERT_EXTRAS = {
   },
   'Teknologi Informasi Dan Komunikasi - ASEAN Data Science Explorers: Enablement Session': {
     link: 'https://drive.google.com/file/d/1dRlEeVVHHhqZ1aOUXO9cXKzTDweFdehQ/view?usp=drivesdk',
-    image: '',
+    image: 'public/Sertifikat ADSE Sagara.jpeg',
     glow: '#0FAAFF',
     linkLabel: 'Lihat sertifikat (PDF)',
   },
