@@ -11,9 +11,9 @@ import { PERSONAL, EDUCATION, CERTIFICATIONS, PROJECTS } from '../data/portfolio
      'circle' → round photo
      'cutout' → no frame; use a PNG with transparent background */
 const PHOTO_FILE = 'Sagara.webp'
-const PHOTO_SHAPE = 'og-image.jpg'
+const PHOTO_SHAPE = 'arch'
 const CV_FILE = 'CV-Sagara-Andi-Ladzuardi-Suwarsa.pdf'
-const HEADLINE = 'Fresh Graduate S1 Sains Data Bersemangat Memanfaatkan Teknologi dan Data.'
+const HEADLINE = 'Mengubah data mentah menjadi keputusan yang bermakna.'
 /* ─────────────────────────────────────────────────────────── */
 
 const SHAPES = {
@@ -26,17 +26,15 @@ const fadeMask = 'linear-gradient(to bottom, #000 80%, transparent 100%)'
 
 const BASE = import.meta.env.BASE_URL
 const edu = EDUCATION[0] || { degree: 'S1 Sains Data', institution: 'Universitas Koperasi Indonesia', gpa: '3.61', status: 'Lulus' }
-const studentWord = edu.status === 'Lulus' ? 'fresh graduate' : 'Mahasiswa'
 
 // Hl = key fact (white), Ac = institution / role (teal)
-const Hl = ({ children }) => <span className="text-slate-100 font-medium">{children}</span>
+const Hl = ({ children }) => <span className="text-slate-100 font-semibold">{children}</span>
 const Ac = ({ children }) => <span className="text-accent-400 font-medium">{children}</span>
 
 const highlights = [
-  'Fresh graduate S1 Sains Data Universitas Koperasi Indonesia (IPK 3.61)',
-  'Pengalaman magang Departemen SI&OP di PT UTC Aerospace System Bandung Operations (Safran Electronics & Defense)',
-  'Pengalaman Asisten Laboratorium & Korps Protokoler Mahasiswa Universitas Koperasi Indonesia',
-  'Sertifikasi Microsoft Excel Expert & SAP Analytics Cloud Training',
+  `S1 Sains Data di Universitas Koperasi Indonesia (IKOPIN), IPK ${edu.gpa || '3.61'}`,
+  'Magang di PT UTC Aerospace Systems, menganalisis 266 ribu baris data produksi',
+  'Sertifikasi Microsoft Excel (Expert) dan SAP Analytics Cloud, serta 2 publikasi jurnal ilmiah',
   'Terbuka untuk magang dan posisi entry-level Data Analyst',
 ]
 
@@ -120,17 +118,23 @@ export default function About() {
 
             {/* Right: story */}
             <div data-reveal="left" data-delay="200">
-              <h3 className="font-display font-700 text-2xl lg:text-3xl text-slate-100 leading-tight mb-5">
+              <h3 className="font-display font-700 text-3xl lg:text-4xl text-slate-100 leading-tight mb-6">
                 {HEADLINE}
               </h3>
 
-              <div className="space-y-4 text-slate-400 leading-relaxed">
+              <div className="space-y-5 text-slate-400 leading-relaxed">
                 <p>
-                  Saya <Hl>{PERSONAL?.name || 'SAGARA ANDI LADZUARDI SUWARSA'}</Hl>, {studentWord} <Ac>S1 Sains Data</Ac> dari{' '}
-                  <Ac>Universitas Koperasi Indonesia</Ac> dengan IPK 3.61. Saya bersemangat dalam memanfaatkan teknologi dan data untuk memecahkan masalah, didukung dengan keterampilan di bidang <Hl>SQL, Tableau, Power BI, Python, dan Microsoft Excel</Hl>.
+                  Saya <Hl>{PERSONAL?.name || 'SAGARA ANDI LADZUARDI SUWARSA'}</Hl>, lulusan <Ac>S1 Sains Data</Ac> di{' '}
+                  <Ac>Universitas Koperasi Indonesia (IKOPIN)</Ac> yang berfokus pada <Hl>analisis data</Hl> dan{' '}
+                  <Hl>statistik</Hl>. Saya terbiasa mengolah data mentah, mulai dari pembersihan data dan{' '}
+                  <Hl>PivotTable di Excel</Hl> hingga visualisasi di <Hl>Power BI</Hl>, agar hasilnya mudah dipahami oleh
+                  orang yang mengambil keputusan.
                 </p>
                 <p>
-                  Memiliki pengalaman magang di <Ac>Departemen SI&OP PT UTC Aerospace System Bandung Operations (Safran Electronics & Defense)</Ac> untuk memproses data operasional, menganalisis variansi favorable/unfavorable, dan mengidentifikasi potensi hambatan produksi (bottleneck). Selain itu, saya berpengalaman sebagai <Ac>Asisten Laboratorium Komputer dan Software I</Ac> dan <Ac>Korps Protokoler Mahasiswa</Ac> di Universitas Koperasi Indonesia.
+                  Saya belajar lewat <Hl>proyek nyata</Hl>, magang, dan pelatihan, dan senang <Hl>bekerja dalam tim</Hl>.
+                  Pengalaman memimpin Himpunan Mahasiswa Sains Data melatih saya berkomunikasi dan berkoordinasi dengan
+                  banyak pihak. Saat ini saya mencari kesempatan <Ac>magang</Ac> atau posisi <Ac>entry-level</Ac> sebagai{' '}
+                  <Ac>Data Analyst</Ac>.
                 </p>
               </div>
 
