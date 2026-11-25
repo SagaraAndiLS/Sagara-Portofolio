@@ -14,7 +14,7 @@ const BASE = import.meta.env.BASE_URL
 const CERT_EXTRAS = {
   'Teknologi Informasi Dan Komunikasi - Microsoft Excel': {
     link: 'https://drive.google.com/file/d/1kpMhLfLwW_dmURGTfVYyVMnXy5vHR-uz/view?usp=drivesdk',
-    image: '',
+    image: 'public/Sertifikat KarirNex Sagara.jpeg',
     glow: '#21A366',
     linkLabel: 'Lihat sertifikat (PDF)',
   },
