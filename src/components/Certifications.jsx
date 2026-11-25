@@ -25,7 +25,7 @@ const CERT_EXTRAS = {
     linkLabel: 'Lihat sertifikat (PDF)',
   },
   'TOEFL ITP (520)': {
-    link: '',
+    link: 'https://drive.google.com/file/d/1CN8FSXn7Wvnczq3mcBB7qFZJK6zTxOB3/view?usp=drivesdk',
     image: '',
     glow: '#F7704F',
     linkLabel: 'Lihat sertifikat (PDF)',
