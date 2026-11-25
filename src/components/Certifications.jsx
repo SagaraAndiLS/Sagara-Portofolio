@@ -26,7 +26,7 @@ const CERT_EXTRAS = {
   },
   'TOEFL ITP (520)': {
     link: 'https://drive.google.com/file/d/1CN8FSXn7Wvnczq3mcBB7qFZJK6zTxOB3/view?usp=drivesdk',
-    image: '',
+    image: 'public/Sertifikat ELT Sagara.jpeg',
     glow: '#F7704F',
     linkLabel: 'Lihat sertifikat (PDF)',
   },
