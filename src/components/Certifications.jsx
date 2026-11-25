@@ -8,25 +8,26 @@ const BASE = import.meta.env.BASE_URL
 // ══ ISI LINK & GAMBAR SERTIFIKAT DI SINI ══
 // Judul di kiri harus sama persis dengan title di src/data/portfolio.js
 //   link      : link sertifikat (kosong = tidak bisa diklik)
-//   image     : nama file gambar di folder public/certs/ (kosong = tampil ikon)
+//   image     : nama file gambar yang ada di folder public/ (tulis nama filenya saja,
+//               tanpa "public/"). Kosong = tampil ikon.
 //   glow      : warna cahaya kartu saat aktif (kode hex)
 //   linkLabel : tulisan tombol link
 const CERT_EXTRAS = {
   'Teknologi Informasi Dan Komunikasi - Microsoft Excel': {
     link: 'https://drive.google.com/file/d/1kpMhLfLwW_dmURGTfVYyVMnXy5vHR-uz/view?usp=drivesdk',
-    image: 'public/Sertifikat KarirNex Sagara.jpeg',
+    image: 'Sertifikat KarirNex Sagara.jpeg',
     glow: '#21A366',
     linkLabel: 'Lihat sertifikat (PDF)',
   },
   'Teknologi Informasi Dan Komunikasi - ASEAN Data Science Explorers: Enablement Session': {
     link: 'https://drive.google.com/file/d/1dRlEeVVHHhqZ1aOUXO9cXKzTDweFdehQ/view?usp=drivesdk',
-    image: 'public/Sertifikat ADSE Sagara.jpeg',
+    image: 'Sertifikat ADSE Sagara.jpeg',
     glow: '#0FAAFF',
     linkLabel: 'Lihat sertifikat (PDF)',
   },
   'TOEFL ITP (520)': {
     link: 'https://drive.google.com/file/d/1CN8FSXn7Wvnczq3mcBB7qFZJK6zTxOB3/view?usp=drivesdk',
-    image: 'public/Sertifikat ELT Sagara.jpeg',
+    image: 'Sertifikat ELT Sagara.jpeg',
     glow: '#F7704F',
     linkLabel: 'Lihat sertifikat (PDF)',
   },
@@ -89,9 +90,9 @@ function CertCard({ cert, offset, onSelect }) {
           >
             {extra.image ? (
               <img
-                src={`${BASE}certs/${extra.image}`}
+                src={`${BASE}${encodeURI(extra.image)}`}
                 alt={`Sertifikat ${cert.title}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
                 draggable={false}
               />
             ) : (
