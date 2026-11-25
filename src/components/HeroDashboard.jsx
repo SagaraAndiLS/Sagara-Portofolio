@@ -44,7 +44,6 @@ export default function HeroDashboard() {
       <div className="relative flex items-center justify-between gap-3 mb-5">
         <div>
           <p className="font-mono text-[11px] tracking-widest text-accent-400">DASHBOARD PROFIL</p>
-          <h2 className="font-display font-700 text-lg text-slate-100 leading-tight">Sagara dalam angka</h2>
         </div>
         <span className="hidden sm:flex items-center gap-1.5 font-mono text-[11px] text-slate-500">
           <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse-slow" />
